@@ -112,6 +112,7 @@ thinkbig-website/
 │   │   ├── pricing-form.js        Pricing questionnaire card (rendered into each [data-pricing-mount])
 │   │   ├── features.js            Feature explorer (details for each feature in the Features section)
 │   │   ├── home.js                Home page: feature accordion, savings estimate, carousel
+│   │   ├── audience.js            Audience pages: feature tabs
 │   │   ├── whats-new.js           What's New: Smart Assistant typing demonstration
 │   │   ├── showcase.js            Interactive dashboard, register and journey previews
 │   │   ├── site-links.js          Anchors, demo CTAs, login, copy address, back to top
@@ -128,6 +129,8 @@ thinkbig-website/
 ├── index.html                     The landing page
 ├── features.html                  Feature explorer (all 19 features)
 ├── pricing.html                   Pricing: questionnaire, features panel, plan comparison
+├── daycare.html, preschools.html, multisite.html, montessori.html
+│                                  Audience pages (Who We Serve), generated from one shared template
 ├── whats-new.html                 What's New: product updates, feature roadmap, 4 showcases with mockups
 ├── partials/                      Shared sprite, header and footer (stitched in by vite.config.js)
 ├── privacy.html                   Privacy Policy placeholder

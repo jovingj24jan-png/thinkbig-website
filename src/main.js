@@ -13,6 +13,7 @@ import './styles/pricing.css';
 import './styles/page-motion.css';
 import './styles/home.css';
 import './styles/whats-new.css';
+import './styles/audience.css';
 
 import { initHeader } from './js/header.js';
 import { initSearch } from './js/search.js';
@@ -29,6 +30,7 @@ import { initPricingForm } from './js/pricing-form.js';
 import { initPageMotion } from './js/page-motion.js';
 import { initHome } from './js/home.js';
 import { initWhatsNew } from './js/whats-new.js';
+import { initAudienceTabs } from './js/audience.js';
 
 document.documentElement.classList.add('js');
 
@@ -37,6 +39,7 @@ initPlans();
 initPricingForm();
 initHome();
 initWhatsNew();
+initAudienceTabs();
 initHeader();
 initSearch();
 initAccordion();
