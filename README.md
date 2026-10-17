@@ -111,7 +111,8 @@ thinkbig-website/
 │   │   ├── demo-form.js           Validation and submission states
 │   │   ├── pricing-form.js        Pricing questionnaire card (rendered into each [data-pricing-mount])
 │   │   ├── features.js            Feature explorer (details for each feature in the Features section)
-│   │   ├── home.js                Home page: feature accordion, savings estimate, carousel, hero artwork
+│   │   ├── home.js                Home page: feature accordion, savings estimate, carousel
+│   │   ├── whats-new.js           What's New: Smart Assistant typing demonstration
 │   │   ├── showcase.js            Interactive dashboard, register and journey previews
 │   │   ├── site-links.js          Anchors, demo CTAs, login, copy address, back to top
 │   │   ├── motion.js              Scroll reveal and hero parallax
@@ -127,6 +128,7 @@ thinkbig-website/
 ├── index.html                     The landing page
 ├── features.html                  Feature explorer (all 19 features)
 ├── pricing.html                   Pricing: questionnaire, features panel, plan comparison
+├── whats-new.html                 What's New: product updates, feature roadmap, 4 showcases with mockups
 ├── partials/                      Shared sprite, header and footer (stitched in by vite.config.js)
 ├── privacy.html                   Privacy Policy placeholder
 ├── terms.html                     Terms of Service placeholder
@@ -138,7 +140,7 @@ thinkbig-website/
 - **Privacy Policy / Terms of Service**: `privacy.html` and `terms.html` are clearly marked drafts.
 - **Testimonials**: the "What we believe" section stands in for customer stories. Its placeholder box is marked in `index.html`.
 - **Pricing**: the cards say "Contact us for pricing". No prices or plan features are invented.
-- **What's New**: a short product-updates note in the trust section.
+- **What's New page**: the ✓ / roadmap status of each item and the showcase statuses (Exploring, Product concept) must be confirmed with the product team before launch. The Smart Assistant typing demo is an illustration only.
 - **Login URL, form endpoint, email, phone, app store links and ratings**: set in `src/config.js`.
 - All names and figures in product previews are fictional sample data.
 

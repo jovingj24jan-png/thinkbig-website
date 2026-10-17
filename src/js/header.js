@@ -91,8 +91,9 @@ function initDrawer() {
 
   drawer.querySelectorAll('[data-drawer-link]').forEach((link) => {
     link.addEventListener('click', (e) => {
-      const hash = link.getAttribute('href');
-      if (!hash?.startsWith('#')) return;
+      const url = new URL(link.href, location.href);
+      if (url.pathname !== location.pathname || !url.hash) return;
+      const hash = url.hash;
       e.preventDefault();
       drawer.close();
       // Wait a frame so the dialog's focus restoration doesn't fight our scroll

@@ -17,13 +17,15 @@ function initDemoLinks() {
   });
 }
 
+// Same-page anchors, including links that name the current page (e.g. features.html#f-…
+// while on features.html), scroll in place so the page can react to them.
 function initInPageLinks() {
   document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href^="#"]');
+    const link = e.target.closest('a[href*="#"]');
     if (!link || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
-    const hash = link.getAttribute('href');
-    if (hash === '#') return;
-    if (goTo(hash)) e.preventDefault();
+    const url = new URL(link.href, location.href);
+    if (url.pathname !== location.pathname || !url.hash || url.hash === '#') return;
+    if (goTo(url.hash)) e.preventDefault();
   });
 }
 

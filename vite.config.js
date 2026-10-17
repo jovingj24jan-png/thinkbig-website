@@ -47,6 +47,7 @@ export default defineConfig(({ mode }) => {
           main: resolve(root, 'index.html'),
           pricing: resolve(root, 'pricing.html'),
           features: resolve(root, 'features.html'),
+          whatsNew: resolve(root, 'whats-new.html'),
           privacy: resolve(root, 'privacy.html'),
           terms: resolve(root, 'terms.html'),
         },

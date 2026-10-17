@@ -36,6 +36,7 @@ const INDEX = [
   { title: 'How it works', desc: 'Three steps to get started', href: '#how-it-works', icon: 'i-sparkle', tint: 'tint-yellow', keywords: 'how it works setup onboarding start steps' },
   { title: 'Pricing', desc: 'Plans and a tailored quote', href: 'pricing.html', icon: 'i-wallet', tint: 'tint-yellow', keywords: 'pricing price cost plans quote' },
   { title: 'Savings estimate', desc: 'See how much time THINKBIG could save', href: '#savings', icon: 'i-clock', tint: 'tint-mint', keywords: 'savings calculator estimate time hours cost' },
+  { title: "What's New", desc: 'Product updates and features to look forward to', href: 'whats-new.html', icon: 'i-sparkle', tint: 'tint-pink', keywords: 'whats new updates release roadmap product assistant admissions fees montessori progress' },
   { title: 'FAQ', desc: 'Frequently asked questions', href: '#faq', icon: 'i-question', tint: 'tint-blue', keywords: 'faq questions help' },
   { title: 'Book a demo', desc: 'Request a walkthrough', href: '#demo', icon: 'i-mail', tint: 'tint-pink', keywords: 'demo contact book request call talk sales' },
   { title: 'Contact & address', desc: 'Koramangala, Bengaluru', href: '#demo', icon: 'i-pin', tint: 'tint-pink', keywords: 'contact address location office bengaluru bangalore koramangala ejipura' },
