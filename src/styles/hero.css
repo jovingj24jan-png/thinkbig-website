@@ -1,0 +1,614 @@
+/* First page: an exact, live replica of the scl.png design. The cleaned picture is the
+   background; the THINKBIG copy, buttons and benefit row are real HTML placed where the
+   original design has them. On desktop everything is sized in cqw (1cqw = 1% of the
+   picture's width), so the composition scales as one. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  margin-top: calc(-1 * var(--header-h));
+  overflow: clip;
+  background: linear-gradient(180deg, #fdf9f2 0%, #fcf3f1 60%, #fdf6ea 100%);
+}
+
+/* Soft colour blobs drift behind the picture where it doesn't fill the screen (phones) */
+.hero__ambient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 46vmax;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.38;
+}
+
+.blob--pink { top: -18%; left: -14%; background: #ff9cc0; }
+.blob--sky { top: -12%; right: -16%; background: #9fd3ff; }
+.blob--sun { bottom: -22%; right: 4%; background: #ffd98a; }
+.blob--lilac { bottom: -20%; left: -6%; background: #cdb6ff; }
+
+.hero__art {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__stage {
+  position: absolute;
+}
+
+/* Entrance: the picture comes into focus from a soft blur and a slight zoom */
+.hero__reveal {
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+}
+
+.js .hero__reveal {
+  opacity: 0;
+  transform: scale(1.04);
+  filter: blur(8px);
+}
+
+.js .hero__reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity 900ms var(--ease-out-expo),
+    transform 1400ms var(--ease-out-expo),
+    filter 900ms var(--ease-out-expo);
+}
+
+.hero__float {
+  height: 100%;
+}
+
+/* Slight overscan (--bleed) so the float and tilt never expose the edges */
+.hero__tilt {
+  --rx: 0deg;
+  --ry: 0deg;
+  --bleed: 1.02;
+  position: relative;
+  height: 100%;
+  transform: perspective(1600px) rotateX(var(--rx)) rotateY(var(--ry)) scale(var(--bleed));
+}
+
+.hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Parts: soft-edged windows onto the same picture, built by src/js/hero-scene.js */
+.hero__parts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.part {
+  position: absolute;
+  display: block;
+  background-repeat: no-repeat;
+  -webkit-mask-image: radial-gradient(closest-side, #000 var(--core, 72%), transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 var(--core, 72%), transparent 100%);
+  backface-visibility: hidden;
+}
+
+/* Headline letters for the lift wave */
+.hero .word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero .char {
+  display: inline-block;
+  transform-origin: 50% 80%;
+  backface-visibility: hidden;
+}
+
+/* Pink buttons get a light sweep */
+.hero-btn--primary,
+.header__cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Copy */
+.hero__copy {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.3em;
+  color: var(--primary-text);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero__marks {
+  width: 1.3em;
+  height: 1.7em;
+  flex: none;
+  margin-top: -0.55em;
+  fill: none;
+  stroke: #f9c440;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  color: var(--heading);
+}
+
+.hero__line {
+  display: block;
+}
+
+.hero__line--2 {
+  position: relative;
+  width: max-content;
+}
+
+/* Spec colours: "Little" in Bubblegum Pink, "Minds" in Baby Blue. A faint navy edge
+   keeps the pale blue legible on the warm background. */
+.hero__line--2 {
+  white-space: nowrap;
+}
+
+.hero__line--2 .c-pink {
+  color: var(--primary);
+}
+
+.hero__line--2 .c-blue {
+  color: var(--secondary);
+}
+
+.hero__line--2 .c-pink,
+.hero__line--2 .c-blue {
+  text-shadow: 0 2px 0 rgba(52, 69, 99, 0.14);
+}
+
+/* Soft yellow underline under "Minds", as in the design */
+.hero__line--2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  right: 0.4em;
+  bottom: 0.06em;
+  height: 0.07em;
+  border-radius: 1em;
+  background: linear-gradient(90deg, rgba(249, 196, 64, 0), rgba(249, 196, 64, 0.9) 30%, rgba(249, 196, 64, 0.6));
+}
+
+.hero__marks--title {
+  position: absolute;
+  top: 0.08em;
+  right: -0.62em;
+  width: 0.5em;
+  height: 0.62em;
+  margin: 0;
+  stroke-width: 3.6;
+}
+
+.hero__lead {
+  color: var(--muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  height: var(--btn-h);
+  padding: 0 var(--btn-pad-x);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-btn);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    translate var(--t-base) var(--ease),
+    scale var(--t-base) var(--ease),
+    box-shadow var(--t-base) var(--ease),
+    filter var(--t-base) var(--ease);
+}
+
+.hero-btn .icon {
+  width: 1.15em;
+  height: 1.15em;
+  stroke-width: 2.4;
+  transition: transform var(--t-base) var(--ease);
+}
+
+.hero-btn:hover {
+  translate: 0 -2px;
+}
+
+.hero-btn:hover .icon {
+  transform: translateX(3px);
+}
+
+.hero-btn:active {
+  translate: 0 1px;
+  scale: 0.98;
+}
+
+.hero-btn--primary {
+  background: var(--btn-primary-bg);
+  color: #fff;
+  box-shadow: var(--shadow-pink);
+}
+
+.hero-btn--primary:hover,
+.hero-btn--primary:active {
+  background: var(--btn-primary-bg-hover);
+}
+
+.hero-btn--secondary {
+  padding-left: 12px;
+  border-color: var(--tint-pink-border);
+  background: var(--surface);
+  color: var(--heading);
+  box-shadow: 0 0.5em 1.4em -0.6em rgba(52, 69, 99, 0.25);
+}
+
+.hero-btn--secondary:hover {
+  border-color: var(--primary);
+}
+
+.hero-btn[aria-disabled='true'] {
+  opacity: 0.6;
+  pointer-events: none;
+  translate: none;
+}
+
+.hero-btn__dot {
+  display: grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+}
+
+.hero-btn__dot .icon {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.hero__note {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--muted);
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.hero__note .icon {
+  color: #e2a700;
+}
+
+/* Benefit row */
+.hero__benefits {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__benefits .benefit__icon {
+  box-shadow: 0 0 0 0.35em rgba(255, 255, 255, 0.6), 0 0.6em 1.4em -0.6em rgba(52, 69, 99, 0.25);
+}
+
+.benefit__icon--pink { background: radial-gradient(circle at 35% 30%, #fff 0%, #ffe3ee 60%, #fcd0e1 100%); color: #f0609a; }
+.benefit__icon--blue { background: radial-gradient(circle at 35% 30%, #d9f0ff 0%, #a9d8f7 60%, #86c3ef 100%); color: #2f74c8; }
+.benefit__icon--mint { background: radial-gradient(circle at 35% 30%, #e9f9ec 0%, #bde9c6 60%, #9bd8a8 100%); color: #2f8a4a; }
+.benefit__icon--lav { background: radial-gradient(circle at 35% 30%, #f4efff 0%, #ddd0fa 60%, #c6b3f2 100%); color: #7a55d6; }
+
+/* Desktop replica (exact composition) */
+@media (min-width: 1024px) {
+  .hero {
+    container-type: inline-size;
+    aspect-ratio: 1536 / 1024;
+    background: none;
+  }
+
+  .hero__art {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero__stage {
+    inset: 0;
+  }
+
+  .hero__copy {
+    position: absolute;
+    left: 5.86cqw;
+    top: 10.6cqw;
+    width: 42cqw;
+  }
+
+  .hero__eyebrow {
+    font-size: var(--fs-sm);
+  }
+
+  .hero__title {
+    margin-top: 0;
+  }
+
+  /* Hero H1: 64px at 1440px (spec), scaling down on smaller desktops */
+  .hero__title {
+    max-width: 36cqw; /* keeps the headline clear of the illustration */
+    font-size: clamp(2.5rem, 4.45cqw, 4rem);
+    margin-top: 0.6cqw;
+  }
+
+  .hero__lead {
+    width: 33cqw;
+    margin-top: 1.2cqw;
+    font-size: clamp(1rem, 1.25cqw, 1.125rem);
+    line-height: 1.55;
+  }
+
+  .hero__actions {
+    gap: 1.75cqw;
+    margin-top: 2.1cqw;
+  }
+
+  .hero__note {
+    margin-top: 1.9cqw;
+  }
+
+  .hero__benefits {
+    position: absolute;
+    left: 6.95cqw;
+    right: 3cqw;
+    top: 55.4cqw;
+  }
+
+  .hero__benefits .benefits__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.6cqw;
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .hero__benefits .benefit {
+    align-items: center;
+    gap: 1.6cqw;
+    padding: 0;
+    border: 0;
+  }
+
+  .hero__benefits .benefit__icon {
+    width: 5.86cqw;
+    height: 5.86cqw;
+  }
+
+  .hero__benefits .benefit__icon .icon {
+    width: 2.6cqw;
+    height: 2.6cqw;
+  }
+
+  .hero__benefits .benefit__title {
+    margin-bottom: 0.3cqw;
+    font-size: max(14px, 1.43cqw);
+  }
+
+  .hero__benefits .benefit p {
+    font-size: max(12px, 1.04cqw);
+    line-height: 1.45;
+  }
+}
+
+/* Tablets & phones: copy first, the illustration below it, then the benefits */
+@media (max-width: 1023px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(var(--header-h) + clamp(1.5rem, 1rem + 3vw, 3rem));
+  }
+
+  .hero__copy { order: 1; }
+  .hero__art { order: 2; }
+  .hero__benefits { order: 3; }
+
+  .hero__copy {
+    max-width: 680px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    text-align: center;
+  }
+
+  .hero__eyebrow {
+    font-size: clamp(0.75rem, 0.65rem + 0.4vw, 0.875rem);
+  }
+
+  .hero__title {
+    margin-top: var(--s-3);
+  }
+
+  .hero__line--1,
+  .hero__line--2 {
+    margin-inline: auto;
+  }
+
+  .hero__title {
+    font-size: var(--fs-hero);
+  }
+
+  .hero__lead {
+    max-width: 34rem;
+    margin: var(--s-4) auto 0;
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+  }
+
+  .hero__actions {
+    justify-content: center;
+    gap: var(--s-3);
+    margin-top: var(--s-6);
+  }
+
+  .hero__note {
+    margin-top: var(--s-5);
+  }
+
+  /* A window onto the illustration part of the picture (source x 600–1536, y 100–835) */
+  .hero__art {
+    aspect-ratio: 936 / 735;
+    margin-top: var(--s-6);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  }
+
+  .hero__stage {
+    width: 164.1%;
+    height: 139.3%;
+    left: -64.1%;
+    top: -13.6%;
+  }
+
+  .hero__benefits {
+    padding: 0 var(--gutter) var(--s-8);
+    max-width: calc(var(--container) + var(--gutter) * 2);
+    margin: calc(-1 * var(--s-6)) auto 0;
+  }
+
+}
+
+@media (max-width: 479px) {
+  .hero__actions .hero-btn {
+    width: 100%;
+  }
+}
+
+/* Phone mockup used by the teacher and parent previews. Everything inside is em-based so it scales with font-size. */
+.phone {
+  --pw: min(280px, 72vw);
+  position: relative;
+  width: var(--pw);
+  aspect-ratio: 9 / 19.5;
+  padding: 0.7em;
+  border-radius: 3.2em;
+  background: linear-gradient(150deg, #ffffff 0%, #f3eefb 100%);
+  box-shadow:
+    0 0 0 0.12em #e7e0f3,
+    inset 0 -0.3em 0.6em rgba(181, 157, 228, 0.25),
+    var(--shadow-lg);
+  font-size: calc(var(--pw) * 0.0464);
+  text-align: left;
+}
+
+.phone__screen {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  height: 100%;
+  padding: 0.6em 1em 1em;
+  border-radius: 2.6em;
+  background: var(--background);
+  overflow: hidden;
+}
+
+.phone__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2em 0.6em 0;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.phone__notch {
+  width: 5.5em;
+  height: 1.5em;
+  border-radius: 1em;
+  background: var(--heading);
+}
+
+.phone__sig {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.15em;
+  height: 0.9em;
+}
+
+.phone__sig i {
+  width: 0.28em;
+  border-radius: 1px;
+  background: var(--heading);
+}
+
+.phone__sig i:nth-child(1) { height: 40%; }
+.phone__sig i:nth-child(2) { height: 70%; }
+.phone__sig i:nth-child(3) { height: 100%; }
+
+.phone .icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.app-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.app-head strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.35em;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.app-head__hi {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82em;
+}
+
+.phone__nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto;
+  padding: 0.7em 0.4em;
+  border-radius: 1.4em;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: #9aa4b5;
+}
+
+.phone__nav .is-active {
+  color: var(--primary);
+}

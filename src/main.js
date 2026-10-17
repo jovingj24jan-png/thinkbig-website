@@ -1,0 +1,46 @@
+import '@fontsource/fredoka/latin-600.css';
+import '@fontsource/nunito-sans/latin-400.css';
+import '@fontsource/nunito-sans/latin-500.css';
+import '@fontsource/nunito-sans/latin-700.css';
+
+import './styles/tokens.css';
+import './styles/base.css';
+import './styles/components.css';
+import './styles/hero.css';
+import './styles/sections.css';
+import './styles/motion.css';
+import './styles/pricing.css';
+import './styles/page-motion.css';
+import './styles/home.css';
+
+import { initHeader } from './js/header.js';
+import { initSearch } from './js/search.js';
+import { initAccordion } from './js/accordion.js';
+import { initDemoForm } from './js/demo-form.js';
+import { initMotion } from './js/motion.js';
+import { initHeroScene } from './js/hero-scene.js';
+import { initShowcase } from './js/showcase.js';
+import { initFeatures } from './js/features.js';
+import { initSiteLinks } from './js/site-links.js';
+import { initAppStores } from './js/app-stores.js';
+import { initPlans } from './js/plans.js';
+import { initPricingForm } from './js/pricing-form.js';
+import { initPageMotion } from './js/page-motion.js';
+import { initHome } from './js/home.js';
+
+document.documentElement.classList.add('js');
+
+initAppStores();
+initPlans();
+initPricingForm();
+initHome();
+initHeader();
+initSearch();
+initAccordion();
+initDemoForm();
+initShowcase();
+initFeatures();
+initSiteLinks();
+initHeroScene();
+initMotion();
+initPageMotion();

@@ -1,0 +1,114 @@
+/* Playful Pastel design tokens — mirrors docs/design-system.md and the spec's
+   "Developer design tokens". Use these variables instead of hardcoded values. */
+:root {
+  /* Brand */
+  --primary: #f46b9b;
+  --primary-hover: #d93d77;
+  --primary-text: #c2306a; /* AA-contrast pink for small text and labels */
+  --secondary: #a7d8f0;
+  --yellow: #ffd966;
+  --mint: #b8e6c1;
+  --lavender: #d5c5f2;
+  --peach: #ffbe98;
+
+  /* Neutrals */
+  --background: #fffdf8;
+  --surface: #ffffff;
+  --heading: #344563;
+  --heading-deep: #26344d;
+  --muted: #64748b;
+  --border: #eae7e2;
+
+  /* Tints for cards, icon backgrounds and sections */
+  --tint-pink: #fce7f0;
+  --tint-pink-border: #f8c5d8;
+  --tint-blue: #e3f2fc;
+  --tint-yellow: #fff1cc;
+  --tint-mint: #e4f5e9;
+  --tint-lav: #efe8fb;
+  --tint-peach: #ffeee3;
+  --tint-rose: #ffe6e8;
+  --tint-teal: #e5f8f5;
+
+  /* Status */
+  --ok: #2a7046;
+  --ok-bg: #e4f5e9;
+  --warn: #8a5a00;
+  --warn-bg: #fff1cc;
+  --error: #b42345;
+  --error-bg: #fdecef;
+
+  /* Feature card backgrounds (spec 06) */
+  --card-attendance: #e4f5e9;
+  --card-activities: #fce7f0;
+  --card-meals: #fff1cc;
+  --card-learning: #e3f2fc;
+  --card-health: #ffe6e8;
+  --card-communication: #e5f8f5;
+
+  /* Actions */
+  --btn-primary-bg: var(--primary);
+  --btn-primary-bg-hover: var(--primary-hover);
+  --btn-h: 56px;
+  --btn-pad-x: 32px;
+
+  /* Typography */
+  --font-heading: 'Fredoka', 'Nunito Sans', ui-rounded, system-ui, sans-serif;
+  --font-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Type scale: mobile → desktop (spec 03) */
+  --fs-hero: clamp(2.375rem, 1.55rem + 3.3vw, 4rem); /* 38 → 64px */
+  --fs-h2: clamp(1.875rem, 1.45rem + 1.8vw, 2.75rem); /* 30 → 44px */
+  --fs-h3: clamp(1.5rem, 1.32rem + 0.75vw, 1.75rem); /* 24 → 28px */
+  --fs-h4: 1.25rem;
+  --fs-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --fs-body: 1.0625rem; /* 17px, within the 16–18px range */
+  --fs-btn: 1rem; /* 16px, weight 700 */
+  --fs-sm: 0.875rem; /* 14px, weight 500 */
+  --lh-head: 1.15;
+  --lh-body: 1.6;
+
+  /* Spacing (4px base) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.25rem;
+  --s-6: 1.5rem;
+  --s-8: 2rem;
+  --s-10: 2.5rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+  --section-y: clamp(4.5rem, 3rem + 5vw, 7.5rem);
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 2rem);
+  --container: 1240px;
+  --header-h: 88px;
+
+  /* Radii */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 50px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(52, 69, 99, 0.06);
+  --shadow-md: 0 12px 32px -14px rgba(52, 69, 99, 0.2);
+  --shadow-lg: 0 28px 60px -28px rgba(52, 69, 99, 0.35);
+  --shadow-pink: 0 12px 24px -12px rgba(244, 107, 155, 0.65);
+  --ring: 0 0 0 3px #fff, 0 0 0 6px var(--primary-hover);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft-back: cubic-bezier(0.34, 1.32, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-wave: cubic-bezier(0.45, 0, 0.55, 1);
+  --t-fast: 160ms;
+  --t-base: 220ms;
+  --t-enter: 560ms;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --header-h: 72px;
+  }
+}
