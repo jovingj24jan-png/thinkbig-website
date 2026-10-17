@@ -28,10 +28,27 @@ function initFeatureAccordion() {
     });
   };
 
+  // On narrow screens the product panel sits directly under the open card
+  const stage = acc.querySelector('.bw-acc__stage');
+  const narrow = window.matchMedia('(max-width: 959px)');
+  const place = () => {
+    const current = items.find((i) => i.classList.contains('is-open'));
+    if (narrow.matches && current) current.after(stage);
+    else acc.appendChild(stage);
+  };
+
   items.forEach((item) => {
-    item.querySelector('.bw-acc__trigger').addEventListener('click', () => open(item.dataset.cat));
+    item.querySelector('.bw-acc__trigger').addEventListener('click', () => {
+      open(item.dataset.cat);
+      place();
+    });
   });
-  document.addEventListener('category:show', (e) => open(e.detail));
+  document.addEventListener('category:show', (e) => {
+    open(e.detail);
+    place();
+  });
+  narrow.addEventListener('change', place);
+  place();
 }
 
 // Savings estimate. Assumptions are stated on the page next to the form.
