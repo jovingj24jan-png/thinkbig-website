@@ -1,4 +1,4 @@
-/* Multisite page (multisite.html). Builds on audience.css; everything here is scoped to .ms */
+/* Reference-layout audience pages (multisite.html, preschools.html). Builds on audience.css; all classes use the ms- prefix */
 
 .ms-center-title {
   max-width: 1000px;

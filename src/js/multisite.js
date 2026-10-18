@@ -150,8 +150,8 @@ function initCountUp() {
   items.forEach((el) => observer.observe(el));
 }
 
+// Shared by the audience pages rebuilt from the reference layout (multisite, preschools)
 export function initMultisite() {
-  if (!document.querySelector('.ms')) return;
   initMarquee();
   initSlider();
   initCountUp();
