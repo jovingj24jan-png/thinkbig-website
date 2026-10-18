@@ -1631,19 +1631,21 @@
 .support-card__art {
   position: relative;
   min-height: 380px;
+  margin: 0;
   background: linear-gradient(160deg, var(--card-learning), var(--card-attendance));
-  overflow: hidden;
 }
 
-.support-card__school { position: absolute; left: 50%; bottom: 14%; width: 56%; translate: -50% 0; }
-.support-card__sun { position: absolute; top: 8%; right: 10%; width: 22%; aspect-ratio: 1; }
-.support-card__cloud { position: absolute; top: 14%; left: 8%; width: 30%; aspect-ratio: 160 / 96; }
-.support-card__star { position: absolute; top: 40%; left: 14%; width: 30px; aspect-ratio: 1; }
-.support-card__rainbow { position: absolute; bottom: -20px; right: -30px; width: 46%; aspect-ratio: 320 / 190; opacity: 0.85; }
+.support-card__art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 @media (max-width: 859px) {
   .support-card { grid-template-columns: minmax(0, 1fr); }
-  .support-card__art { min-height: 280px; }
+  .support-card__art { min-height: 0; aspect-ratio: 4 / 3; }
 }
 
 /* ---------- Designed with you in mind ---------- */
