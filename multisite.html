@@ -6,7 +6,7 @@
     <title>Software for Multisite Centers — THINKBIG</title>
     <meta
       name="description"
-      content="Switch between locations or see your whole group at once, with shared settings, fee plans and reports."
+      content="Run every center from one simple app. Switch between locations or see your whole group at once, with shared fee plans, group-wide reports and access by role."
     />
     <meta name="theme-color" content="#FFFDF8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -15,14 +15,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="THINKBIG" />
     <meta property="og:title" content="Software for Multisite Centers — THINKBIG" />
-    <meta property="og:description" content="Switch between locations or see your whole group at once, with shared settings, fee plans and reports." />
+    <meta property="og:description" content="Run every center from one simple app. Switch between locations or see your whole group at once, with shared fee plans, group-wide reports and access by role." />
     <meta property="og:url" content="%VITE_SITE_URL%/multisite.html" />
     <meta property="og:image" content="%VITE_SITE_URL%/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Software for Multisite Centers — THINKBIG" />
-    <meta name="twitter:description" content="Switch between locations or see your whole group at once, with shared settings, fee plans and reports." />
+    <meta name="twitter:description" content="Run every center from one simple app. Switch between locations or see your whole group at once, with shared fee plans, group-wide reports and access by role." />
     <meta name="twitter:image" content="%VITE_SITE_URL%/og-image.png" />
 
     <script>document.documentElement.classList.add('js');</script>
@@ -31,9 +31,9 @@
   <body>
     <!-- include:sprite -->
     <!-- include:header -->
-    <main id="main" class="aud">
+    <main id="main" class="aud ms">
       <!-- Hero -->
-      <section class="aud-hero" aria-labelledby="aud-title">
+      <section class="aud-hero ms-hero" aria-labelledby="ms-title">
         <div class="aud-hero__bg" aria-hidden="true">
           <span class="blob blob--pink"></span>
           <span class="blob blob--sky"></span>
@@ -41,16 +41,185 @@
         </div>
         <div class="container aud-hero__inner">
           <div class="aud-hero__copy">
-            <p class="aud-hero__eyebrow hero-in" style="--i: 0">Software for multisite centers</p>
-            <h1 class="aud-hero__title hero-in" id="aud-title" style="--i: 1">Every center, one clear view with THINKBIG</h1>
-            <p class="aud-hero__lead hero-in" style="--i: 2">Switch between locations or see your whole group at once, with shared settings, fee plans and reports.</p>
+            <h1 class="aud-hero__eyebrow hero-in" style="--i: 0">Software for large and multisite centers</h1>
+            <h2 class="aud-hero__title ms-hero__title hero-in" id="ms-title" style="--i: 1">Run every growing center from one simple app</h2>
+            <p class="aud-hero__lead hero-in" style="--i: 2">THINKBIG helps groups with several centers or branches run with less stress. Share fee plans, keep every family close and follow attendance and enrollment across all your locations, from one login.</p>
             <p class="aud-hero__ask hero-in" style="--i: 3">First, tell us about yourself.</p>
             <div class="pf-card pf-card--bare pf-card--left hero-in" style="--i: 3" data-pricing-mount data-request="demo"></div>
             <p class="aud-hero__login hero-in" style="--i: 4">Already use THINKBIG? <a href="#" data-login>Login</a></p>
           </div>
-          <div class="aud-hero__art hero-in" style="--i: 2" role="img" aria-label="THINKBIG billing dashboard, payments phone and check-in screen (sample data)">
+          <div class="aud-hero__art hero-in" style="--i: 2" role="img" aria-label="Animated THINKBIG preview with sample data: group billing showing all invoices paid, a parent messages app and check-in for one center">
             <div class="aud-hero__tilt">
-              <div class="pv-scene aud-scene" aria-hidden="true">
+              <div class="pv-scene aud-scene ms-scene" aria-hidden="true">
+                <div class="pv-win pv-win--billing ms-scene__win">
+                  <div class="pv-side">
+                    <span class="pv-side__logo"><svg aria-hidden="true"><use href="#logo-mark" /></svg>THINKBIG</span>
+                    <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-home" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-building" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg><i class="pv-line" style="--w: 70%"></i></span>
+                    <span class="pv-side__nav is-active"><svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg><b>Billing</b></span>
+                    <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-blocks" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chart" /></svg><i class="pv-line" style="--w: 70%"></i></span>
+                  </div>
+                  <div class="pv-main">
+                    <p class="pv-title">Billing</p>
+                    <p class="ms-switch"><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg><span class="ms-switch__names"><b>All centers</b><b>Lotus Montessori</b><b>Banyan Day Care</b></span></p>
+                    <p class="ms-meter__label">Fees collected this month</p>
+                    <span class="ms-meter"><i></i></span>
+                    <ul class="pv-rows"><li><span class="avatar avatar--a"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="ms-paid">Paid</i></li><li><span class="avatar avatar--b"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="ms-paid">Paid</i></li><li><span class="avatar avatar--c"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="ms-paid">Paid</i></li><li><span class="avatar avatar--d"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="ms-paid">Paid</i></li></ul>
+                  </div>
+                </div>
+                <div class="pv-toast ms-scene__toast"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>All invoices paid!</div>
+                <div class="pv-phone ms-scene__phone">
+                  <p class="pv-phone__head">Messages</p>
+                  <div class="ms-bubble"><span class="avatar avatar--b">L</span><span><i class="pv-line" style="--w: 90%"></i><i class="pv-line pv-line--soft" style="--w: 60%"></i></span></div>
+                  <div class="ms-bubble ms-bubble--me"><span><i class="pv-line" style="--w: 80%"></i><i class="pv-line" style="--w: 50%"></i></span></div>
+                  <div class="ms-bubble ms-bubble--photo"><span class="avatar avatar--e">P</span><svg viewBox="0 0 160 84" aria-hidden="true"><rect width="160" height="84" rx="10" fill="#FFF1CC" /><circle cx="132" cy="18" r="10" fill="#FFD966" /><path d="M0 64q40-18 80 0t80 0v20H0z" fill="#B8E6C1" /><path d="M46 50c0-13 10-21 23-21 0 13-10 21-23 21z" fill="#F46B9B" /><path d="M102 46c0-10 7-16 17-16 0 10-7 16-17 16z" fill="#D5C5F2" /></svg></div>
+                </div>
+                <div class="pv-card pv-card--checkin ms-scene__checkin">
+                  <p class="pv-checkin__head">Check in to Lotus Montessori</p>
+                  <ul class="pv-kids pv-kids--grid">
+                    <li><span class="avatar avatar--a">A</span><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>In</span></li>
+                    <li><span class="avatar avatar--b">K</span><span class="ms-flip"><span class="pv-in">Check in</span><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>In</span></span></li>
+                    <li><span class="avatar avatar--c">Z</span><span class="ms-flip ms-flip--late"><span class="pv-in">Check in</span><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>In</span></span></li>
+                    <li><span class="avatar avatar--d">R</span><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>In</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Strip -->
+      <section class="pr-strip bw-strip" aria-label="About THINKBIG">
+        <div class="container pr-strip__inner">
+          <p class="pr-strip__title">THINKBIG connects every center, teacher and family in one joyful app</p>
+          <div class="pr-strip__apps">
+            <span class="pr-strip__apps-label">Mobile app</span>
+            <div class="store-badges" data-store-badges></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why -->
+      <section class="section aud-why ms-why" aria-labelledby="why-title">
+        <div class="container">
+          <h2 class="section-title ms-center-title" id="why-title" data-split>Why large and multisite groups love THINKBIG</h2>
+          <div class="ms-why__carousel" data-carousel aria-roledescription="carousel" aria-label="Reasons groups choose THINKBIG">
+            <ul class="why-grid ms-why__grid" data-carousel-track tabindex="-1">
+              <li class="why-card" data-reveal style="--d: 0">
+                <span class="why-card__icon why-card__icon--pink"><svg class="icon" aria-hidden="true"><use href="#i-search" /></svg></span>
+                <h3>Quick insight into every center</h3>
+                <p>See how each location is running today, from attendance to fees.</p>
+              </li>
+              <li class="why-card" data-reveal style="--d: 1">
+                <span class="why-card__icon why-card__icon--blue"><svg class="icon" aria-hidden="true"><use href="#i-building" /></svg></span>
+                <h3>Run operations from one system</h3>
+                <p>Billing, attendance, admissions and staff rotas for every center in one place.</p>
+              </li>
+              <li class="why-card" data-reveal style="--d: 2">
+                <span class="why-card__icon why-card__icon--mint"><svg class="icon" aria-hidden="true"><use href="#i-heart" /></svg></span>
+                <h3>The same warm family experience everywhere</h3>
+                <p>Every family gets the same friendly app and updates, whichever center their child attends.</p>
+              </li>
+              <li class="why-card" data-reveal style="--d: 3">
+                <span class="why-card__icon why-card__icon--yellow"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg></span>
+                <h3>Easier staff management across centers</h3>
+                <p>Plan rotas and set access by role and location, with the same processes at every site.</p>
+              </li>
+            </ul>
+            <div class="carousel__nav ms-why__nav">
+              <button class="carousel__btn" type="button" data-carousel-prev aria-label="Previous reason"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></button>
+              <button class="carousel__btn" type="button" data-carousel-next aria-label="Next reason"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Everything each center runs on -->
+      <section class="section ms-marquee" aria-labelledby="mq-title">
+        <div class="container">
+          <h2 class="section-title ms-center-title" id="mq-title" data-split>One platform for everything each center runs on</h2>
+        </div>
+        <div class="ms-marquee__viewport" data-marquee>
+          <ul class="ms-marquee__track" aria-label="THINKBIG features">
+            <li><a class="ms-chip" href="features.html#f-attendance-checkin"><span class="ms-chip__icon tint-mint"><svg class="icon" aria-hidden="true"><use href="#i-attendance" /></svg></span>Attendance &amp; check-in</a></li>
+            <li><a class="ms-chip" href="features.html#f-billing-payments"><span class="ms-chip__icon tint-yellow"><svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg></span>Billing &amp; payments</a></li>
+            <li><a class="ms-chip" href="features.html#f-family-communication"><span class="ms-chip__icon tint-blue"><svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg></span>Family communication</a></li>
+            <li><a class="ms-chip" href="features.html#f-staff-schedules"><span class="ms-chip__icon tint-lav"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg></span>Staff schedules</a></li>
+            <li><a class="ms-chip" href="features.html#f-montessori-observations"><span class="ms-chip__icon tint-pink"><svg class="icon" aria-hidden="true"><use href="#i-sprout" /></svg></span>Montessori observations</a></li>
+            <li><a class="ms-chip" href="features.html#f-admissions-enrollment"><span class="ms-chip__icon tint-peach"><svg class="icon" aria-hidden="true"><use href="#i-clipboard" /></svg></span>Admissions &amp; enrollment</a></li>
+            <li><a class="ms-chip" href="features.html#f-multi-location"><span class="ms-chip__icon tint-rose"><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg></span>Multi-location dashboard</a></li>
+            <li><a class="ms-chip" href="features.html#f-progress-reports"><span class="ms-chip__icon tint-teal"><svg class="icon" aria-hidden="true"><use href="#i-chart" /></svg></span>Progress reports</a></li>
+            <li><a class="ms-chip" href="features.html#f-health-safety"><span class="ms-chip__icon tint-mint"><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg></span>Health &amp; safety</a></li>
+            <li><a class="ms-chip" href="features.html#f-meals-nutrition"><span class="ms-chip__icon tint-yellow"><svg class="icon" aria-hidden="true"><use href="#i-meal" /></svg></span>Meals &amp; nutrition</a></li>
+            <li><a class="ms-chip" href="features.html#f-forms-documents"><span class="ms-chip__icon tint-blue"><svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg></span>Forms &amp; documents</a></li>
+            <li><a class="ms-chip" href="features.html#f-parent-app"><span class="ms-chip__icon tint-pink"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg></span>Parent mobile app</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Features (tabs) -->
+      <section class="section aud-features ms-features" id="features" aria-labelledby="feat-title">
+        <div class="container">
+          <h2 class="section-title aud-features__title" id="feat-title" data-split>Large and multisite groups and directors: THINKBIG is for you</h2>
+          <div class="aud-tabs ms-tabs" data-tabs>
+            <div class="aud-tabs__list" role="tablist" aria-label="Features for multisite groups">
+              <button class="aud-tab" type="button" role="tab" id="tab-dashboard" aria-controls="panel-dashboard" aria-selected="true" tabindex="0">Centralized dashboard</button>
+              <button class="aud-tab" type="button" role="tab" id="tab-billing" aria-controls="panel-billing" aria-selected="false" tabindex="-1">Billing</button>
+              <button class="aud-tab" type="button" role="tab" id="tab-staff" aria-controls="panel-staff" aria-selected="false" tabindex="-1">Staff management</button>
+              <button class="aud-tab" type="button" role="tab" id="tab-communication" aria-controls="panel-communication" aria-selected="false" tabindex="-1">Communication</button>
+              <button class="aud-tab" type="button" role="tab" id="tab-reporting" aria-controls="panel-reporting" aria-selected="false" tabindex="-1">Reporting</button>
+              <button class="aud-tab" type="button" role="tab" id="tab-learning" aria-controls="panel-learning" aria-selected="false" tabindex="-1">Learning</button>
+            </div>
+            <div class="aud-tabs__card">
+              <div class="aud-panel" role="tabpanel" id="panel-dashboard" aria-labelledby="tab-dashboard" tabindex="0">
+                <div class="aud-panel__copy">
+                  <h3>Run your large and growing group from one app</h3>
+                  <ul class="aud-bullets"><li>See every location in one place, or switch to a single center in a tap</li><li>Follow attendance, fees and enrollment from one dashboard</li><li>Keep family, child and staff records together for the whole group</li><li>Use shared settings and fee plans so every center works the same way</li></ul>
+                  <a class="btn btn--primary btn--sm" href="features.html#f-multi-location">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
+                  <figure class="ms-principle">
+                    <span class="ms-principle__mark" aria-hidden="true"><svg><use href="#logo-mark" /></svg></span>
+                    <blockquote><p>“Simple enough for every teacher and every family to use from the very first day.”</p></blockquote>
+                    <figcaption>THINKBIG principle · Simplicity</figcaption>
+                  </figure>
+                </div>
+                <div class="aud-panel__visual bw-acc__visual ms-visual ms-visual--dashboard" role="img" aria-label="A group dashboard comparing three centers, with a center switcher (sample data)">
+                  <div class="pv-scene pv-scene--group" aria-hidden="true">
+                    <div class="pv-win ms-win--group">
+                      <div class="pv-side">
+                        <span class="pv-side__logo"><svg aria-hidden="true"><use href="#logo-mark" /></svg>THINKBIG</span>
+                        <span class="pv-side__nav is-active"><svg class="icon" aria-hidden="true"><use href="#i-home" /></svg><b>Home</b></span>
+                        <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-building" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-clipboard" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-sprout" /></svg><i class="pv-line" style="--w: 70%"></i></span>
+                      </div>
+                      <div class="pv-main">
+                        <p class="pv-title">All centers · Today</p>
+                        <ul class="ms-centers">
+                          <li><span class="ms-centers__dot tone-pink"></span><b>Lotus Montessori</b><span class="ms-centers__bar"><i style="--v: 92%"></i></span><small>46 in</small></li>
+                          <li><span class="ms-centers__dot tone-blue"></span><b>Banyan Day Care</b><span class="ms-centers__bar"><i style="--v: 78%"></i></span><small>38 in</small></li>
+                          <li><span class="ms-centers__dot tone-yellow"></span><b>Sunflower Preschool</b><span class="ms-centers__bar"><i style="--v: 85%"></i></span><small>41 in</small></li>
+                        </ul>
+                        <div class="ms-tiles"><span><small>Children in</small><b>125</b></span><span><small>Rooms open</small><b>14</b></span><span><small>Enquiries</small><b>9</b></span></div>
+                      </div>
+                    </div>
+                    <div class="pv-card ms-card--switch">
+                      <p class="ms-card__head"><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg>Switch center</p>
+                      <ul><li class="is-on">All centers <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></li><li>Lotus Montessori</li><li>Banyan Day Care</li><li>Sunflower Preschool</li></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="aud-panel" role="tabpanel" id="panel-billing" aria-labelledby="tab-billing" tabindex="0" hidden>
+                <div class="aud-panel__copy">
+                  <h3>Bring every center’s fees into one clear view</h3>
+                  <ul class="aud-bullets"><li>Set up fee plans once and reuse them at every center</li><li>Raise invoices and track payments for every family</li><li>See what is collected and what is due, center by center</li><li>Send gentle reminders for overdue fees</li><li>Log expenses and export them for your accountant</li></ul>
+                  <a class="btn btn--primary btn--sm" href="features.html#f-billing-payments">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
+                  <figure class="ms-principle">
+                    <span class="ms-principle__mark" aria-hidden="true"><svg><use href="#logo-mark" /></svg></span>
+                    <blockquote><p>“Every minute saved on paperwork is a minute a teacher can spend kneeling beside a child.”</p></blockquote>
+                    <figcaption>THINKBIG principle · Time</figcaption>
+                  </figure>
+                </div>
+                <div class="aud-panel__visual bw-acc__visual bw-acc__visual--billing ms-visual" role="img" aria-label="Fee plans, autopay and account balances in THINKBIG (sample data)">
+                  <div class="pv-scene pv-scene--billing" aria-hidden="true">
               <div class="pv-win pv-win--billing">
                 <div class="pv-side">
                   <span class="pv-side__logo"><svg aria-hidden="true"><use href="#logo-mark" /></svg>THINKBIG</span>
@@ -81,115 +250,51 @@
                   <li><i class="pv-dot pv-dot--mint"></i><i class="pv-line pv-line--soft" style="--w: 60%"></i><span>₹</span><i class="pv-line" style="--w: 16%"></i></li>
                 </ul>
               </div>
-              <div class="pv-card pv-card--checkin"><p class="pv-checkin__head">Check in to Sunflower Montessori</p><ul class="pv-kids pv-kids--grid"><li><span class="avatar avatar--a">A</span><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>In</span></li><li><span class="avatar avatar--b">K</span><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>In</span></li><li><span class="avatar avatar--c">Z</span><span class="pv-in">Check in</span></li><li><span class="avatar avatar--d">R</span><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>In</span></li></ul></div>
+                </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Product facts -->
-      <section class="section bw-stats aud-stats" aria-label="THINKBIG at a glance">
-        <div class="container"><ul class="stat-row"><li class="stat stat--pink" data-reveal style="--d: 0"><strong>19</strong><span>Features in one connected platform</span></li><li class="stat stat--lav" data-reveal style="--d: 1"><strong>6</strong><span>Montessori learning areas you can track</span></li><li class="stat stat--blue" data-reveal style="--d: 2"><strong>3</strong><span>Views: schools, teachers and families</span></li><li class="stat stat--green" data-reveal style="--d: 3"><strong>4</strong><span>Program types, from day care to multisite</span></li></ul></div>
-      </section>
-
-      <!-- Why -->
-      <section class="section aud-why" aria-labelledby="why-title">
-        <div class="container">
-          <header class="section-head section-head--wide">
-            <h2 class="section-title" id="why-title" data-split>Why multisite groups love THINKBIG</h2>
-            <p class="section-lead">THINKBIG gives group leaders one dashboard across every center, while each team keeps the tools it needs day to day.</p>
-          </header>
-          <ul class="why-grid">
-            <li class="why-card" data-reveal style="--d: 0">
-              <span class="why-card__icon why-card__icon--pink"><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg></span>
-              <h3>Every location at once</h3>
-              <p>See enrollment, attendance and fees for one center or the whole group.</p>
-            </li>
-            <li class="why-card" data-reveal style="--d: 1">
-              <span class="why-card__icon why-card__icon--blue"><svg class="icon" aria-hidden="true"><use href="#i-chart" /></svg></span>
-              <h3>Group-wide reports</h3>
-              <p>Compare centers and spot what needs attention without collecting spreadsheets.</p>
-            </li>
-            <li class="why-card" data-reveal style="--d: 2">
-              <span class="why-card__icon why-card__icon--mint"><svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg></span>
-              <h3>Shared fee plans</h3>
-              <p>Set up fee plans once and use them across your locations.</p>
-            </li>
-            <li class="why-card" data-reveal style="--d: 3">
-              <span class="why-card__icon why-card__icon--yellow"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg></span>
-              <h3>Access by role</h3>
-              <p>Directors, center managers and teachers each see what is relevant to them.</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Features (tabs) -->
-      <section class="section aud-features" id="features" aria-labelledby="feat-title">
-        <div class="container">
-          <h2 class="section-title aud-features__title" id="feat-title" data-split>Features of THINKBIG for multisite centers</h2>
-          <div class="aud-tabs" data-tabs>
-            <div class="aud-tabs__list" role="tablist" aria-label="Features">
-              <button class="aud-tab" type="button" role="tab" id="tab-attendance" aria-controls="panel-attendance" aria-selected="true" tabindex="0">Attendance</button>
-<button class="aud-tab" type="button" role="tab" id="tab-communication" aria-controls="panel-communication" aria-selected="false" tabindex="-1">Parent communication</button>
-<button class="aud-tab" type="button" role="tab" id="tab-billing" aria-controls="panel-billing" aria-selected="false" tabindex="-1">Billing</button>
-<button class="aud-tab" type="button" role="tab" id="tab-management" aria-controls="panel-management" aria-selected="false" tabindex="-1">Staff management</button>
-<button class="aud-tab" type="button" role="tab" id="tab-health" aria-controls="panel-health" aria-selected="false" tabindex="-1">Health &amp; safety</button>
-<button class="aud-tab" type="button" role="tab" id="tab-learning" aria-controls="panel-learning" aria-selected="false" tabindex="-1">Learning</button>
-            </div>
-            <div class="aud-tabs__card">
-            <div class="aud-panel" role="tabpanel" id="panel-attendance" aria-labelledby="tab-attendance" tabindex="0">
-              <div class="aud-panel__copy">
-                <h3>Effortless attendance</h3>
-                <ul class="aud-bullets"><li>Check children in and out with a single tap</li><li>See a live headcount for every room</li><li>Absence notes from families arrive in the app</li></ul>
-                <a class="btn btn--primary btn--sm" href="features.html#f-attendance-checkin">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
-              </div>
-              <div class="aud-panel__visual bw-acc__visual bw-acc__visual--billing" role="img" aria-label="Digital check-in for a classroom (sample data)">
-                <svg class="pv-wave pv-wave--top" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h600v34C470 6 330 2 180 42 110 60 50 66 0 58z" /></svg>
-            <svg class="pv-wave pv-wave--bottom" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90h600V40C520 18 420 30 300 46S90 62 0 30z" /></svg>
-            <span class="pv-confetti pv-confetti--sq" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--tri" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--sq2" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half2" aria-hidden="true"></span>
-                <div class="pv-scene pv-scene--attendance" aria-hidden="true">
-              <div class="pv-win pv-win--checkin">
+              <div class="aud-panel" role="tabpanel" id="panel-staff" aria-labelledby="tab-staff" tabindex="0" hidden>
+                <div class="aud-panel__copy">
+                  <h3>Keep every team organized</h3>
+                  <ul class="aud-bullets"><li>Plan weekly rotas and room assignments for each center</li><li>See leave and cover at a glance, so every room is staffed</li><li>Give each person access by role and location</li><li>Staff check in and out in the app</li></ul>
+                  <a class="btn btn--primary btn--sm" href="features.html#f-staff-schedules">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
+                </div>
+                <div class="aud-panel__visual bw-acc__visual bw-acc__visual--management ms-visual" role="img" aria-label="A weekly checklist for running a center in THINKBIG (sample data)">
+                  <div class="pv-scene pv-scene--management" aria-hidden="true">
+              <div class="pv-win pv-win--mgmt">
+                <div class="pv-dots"><i></i><i></i><i></i></div>
                 <div class="pv-side">
                   <span class="pv-side__logo"><svg aria-hidden="true"><use href="#logo-mark" /></svg>THINKBIG</span>
                   <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-home" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-building" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg><i class="pv-line" style="--w: 70%"></i></span>
-                  <span class="pv-side__nav is-active"><svg class="icon" aria-hidden="true"><use href="#i-attendance" /></svg><b>Check-in</b></span>
+                  <span class="pv-side__nav is-active"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg><b>Staff</b></span>
                   <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-blocks" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-clipboard" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chart" /></svg><i class="pv-line" style="--w: 70%"></i></span>
                 </div>
-                <div class="pv-main">
-                  <p class="pv-title">Sunflower Room · Today</p>
-                  <ul class="pv-kids">
-                    <li><span class="avatar avatar--a">A</span><b>Ananya</b><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Checked in</span></li>
-                    <li><span class="avatar avatar--b">K</span><b>Kabir</b><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Checked in</span></li>
-                    <li><span class="avatar avatar--c">Z</span><b>Zoya</b><span class="pv-in">Check in</span></li>
-                    <li><span class="avatar avatar--d">R</span><b>Rohan</b><span class="pv-in is-in"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Checked in</span></li>
-                  </ul>
+                <div class="pv-main"></div>
+              </div>
+              <div class="pv-card pv-card--tasks">
+                <p class="pv-tasks__head">Staff rota due in <b>2</b> days</p>
+                <ol class="pv-tasks">
+                  <li><span class="pv-num">1</span><span>Review attendance in THINKBIG</span><a tabindex="-1">Review attendance</a></li>
+                  <li><span class="pv-num">2</span><span>Confirm next week's staff rota</span><a tabindex="-1">Confirm rota</a></li>
+                  <li><span class="pv-num">3</span><span>Share the weekly menu with families</span><a tabindex="-1">Open <svg class="icon pv-ext" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
+                </ol>
+              </div>
+                </div>
                 </div>
               </div>
-              <div class="pv-toast pv-toast--count"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg>14 of 16 children in</div>
+              <div class="aud-panel" role="tabpanel" id="panel-communication" aria-labelledby="tab-communication" tabindex="0" hidden>
+                <div class="aud-panel__copy">
+                  <h3>Keep every family close, at every center</h3>
+                  <ul class="aud-bullets"><li>Send announcements to a class, a center or the whole group</li><li>Message families one to one in a secure place</li><li>Share photos, videos and daily updates as they happen</li></ul>
+                  <a class="btn btn--primary btn--sm" href="features.html#f-family-communication">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
+                  <figure class="ms-principle">
+                    <span class="ms-principle__mark" aria-hidden="true"><svg><use href="#logo-mark" /></svg></span>
+                    <blockquote><p>“Families deserve a window into their child’s day, not just a report at the end of the term.”</p></blockquote>
+                    <figcaption>THINKBIG principle · Connection</figcaption>
+                  </figure>
                 </div>
-              </div>
-            </div>
-            <div class="aud-panel" role="tabpanel" id="panel-communication" aria-labelledby="tab-communication" tabindex="0" hidden>
-              <div class="aud-panel__copy">
-                <h3>Warm, real-time family updates</h3>
-                <ul class="aud-bullets"><li>Share photos, meals, naps and moments as they happen</li><li>Send announcements to a class or the whole school</li><li>Keep every conversation in one secure place</li></ul>
-                <a class="btn btn--primary btn--sm" href="features.html#f-family-communication">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
-              </div>
-              <div class="aud-panel__visual bw-acc__visual bw-acc__visual--communication" role="img" aria-label="Messages for staff and families, and a parent app daily feed (sample data)">
-                <svg class="pv-wave pv-wave--top" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h600v34C470 6 330 2 180 42 110 60 50 66 0 58z" /></svg>
-            <svg class="pv-wave pv-wave--bottom" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90h600V40C520 18 420 30 300 46S90 62 0 30z" /></svg>
-            <span class="pv-confetti pv-confetti--sq" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--tri" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--sq2" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half2" aria-hidden="true"></span>
-                <div class="pv-scene pv-scene--communication" aria-hidden="true">
+                <div class="aud-panel__visual bw-acc__visual bw-acc__visual--communication ms-visual" role="img" aria-label="Messages for staff and families, and a parent app daily feed (sample data)">
+                  <div class="pv-scene pv-scene--communication" aria-hidden="true">
               <div class="pv-win pv-win--messages">
                 <div class="pv-tabs"><span><svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg></span><b>Messages</b><span>Announcements</span><span>Newsletters</span></div>
                 <div class="pv-main">
@@ -221,134 +326,50 @@
                 </ul>
               </div>
                 </div>
-              </div>
-            </div>
-            <div class="aud-panel" role="tabpanel" id="panel-billing" aria-labelledby="tab-billing" tabindex="0" hidden>
-              <div class="aud-panel__copy">
-                <h3>Fees that take care of themselves</h3>
-                <ul class="aud-bullets"><li>Set up fee plans once and send invoices automatically</li><li>Give families easy ways to pay</li><li>See what is collected and what is due at a glance</li></ul>
-                <a class="btn btn--primary btn--sm" href="features.html#f-billing-payments">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
-              </div>
-              <div class="aud-panel__visual bw-acc__visual bw-acc__visual--billing" role="img" aria-label="Fee plans, autopay and account balances in THINKBIG (sample data)">
-                <svg class="pv-wave pv-wave--top" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h600v34C470 6 330 2 180 42 110 60 50 66 0 58z" /></svg>
-            <svg class="pv-wave pv-wave--bottom" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90h600V40C520 18 420 30 300 46S90 62 0 30z" /></svg>
-            <span class="pv-confetti pv-confetti--sq" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--tri" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--sq2" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half2" aria-hidden="true"></span>
-                <div class="pv-scene pv-scene--billing" aria-hidden="true">
-              <div class="pv-win pv-win--billing">
-                <div class="pv-side">
-                  <span class="pv-side__logo"><svg aria-hidden="true"><use href="#logo-mark" /></svg>THINKBIG</span>
-                  <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-home" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-building" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg><i class="pv-line" style="--w: 70%"></i></span>
-                  <span class="pv-side__nav is-active"><svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg><b>Billing</b></span>
-                  <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-blocks" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-clipboard" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chart" /></svg><i class="pv-line" style="--w: 70%"></i></span>
-                </div>
-                <div class="pv-main">
-                  <p class="pv-title">Student fee plans</p>
-                  <div class="pv-filters"><span><svg class="icon" aria-hidden="true"><use href="#i-search" /></svg></span><span></span><span></span></div>
-                  <ul class="pv-rows"><li><span class="avatar avatar--a"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="pv-line pv-line--soft" style="--w: 14%"></i></li><li><span class="avatar avatar--b"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="pv-line pv-line--soft" style="--w: 14%"></i></li><li><span class="avatar avatar--c"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="pv-line pv-line--soft" style="--w: 14%"></i></li><li><span class="avatar avatar--d"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="pv-line pv-line--soft" style="--w: 14%"></i></li><li><span class="avatar avatar--e"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="pv-line pv-line--soft" style="--w: 14%"></i></li><li><span class="avatar avatar--f"></span><i class="pv-line" style="--w: 38%"></i><i class="pv-line pv-line--soft" style="--w: 22%"></i><i class="pv-line pv-line--soft" style="--w: 14%"></i></li></ul>
                 </div>
               </div>
-              <div class="pv-phone pv-phone--pay">
-                <p class="pv-phone__head">Payments</p>
-                <div class="pv-person"><span class="avatar avatar--e">PR</span><span><b>Priya Rao</b><i class="pv-line pv-line--soft" style="--w: 70%"></i></span></div>
-                <div class="pv-setting pv-setting--on"><span>Autopay</span><span class="pv-toggle">ON<i></i></span></div>
-                <div class="pv-setting"><span>Payment<br />method</span><svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg><i class="pv-line pv-line--soft" style="--w: 30%"></i></div>
-                <div class="pv-block"></div>
-              </div>
-              <div class="pv-toast pv-toast--billing"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Autopay enabled!</div>
-              <div class="pv-card pv-card--balance">
-                <div class="pv-person"><span class="avatar avatar--e">PR</span><span><b>Priya Rao</b><i class="pv-line pv-line--soft" style="--w: 60%"></i></span></div>
-                <p class="pv-balance"><span>Account balance</span><span>₹ <i class="pv-line" style="--w: 40%"></i></span></p>
-                <ul class="pv-ledger">
-                  <li><i class="pv-dot pv-dot--pink"></i><i class="pv-line pv-line--soft" style="--w: 55%"></i><span>₹</span><i class="pv-line" style="--w: 16%"></i></li>
-                  <li><i class="pv-dot pv-dot--lav"></i><i class="pv-line pv-line--soft" style="--w: 45%"></i><span>₹</span><i class="pv-line" style="--w: 16%"></i></li>
-                  <li><i class="pv-dot pv-dot--mint"></i><i class="pv-line pv-line--soft" style="--w: 60%"></i><span>₹</span><i class="pv-line" style="--w: 16%"></i></li>
-                </ul>
-              </div>
+              <div class="aud-panel" role="tabpanel" id="panel-reporting" aria-labelledby="tab-reporting" tabindex="0" hidden>
+                <div class="aud-panel__copy">
+                  <h3>Find the numbers you need, fast</h3>
+                  <ul class="aud-bullets"><li>Group-wide reports that compare your centers side by side</li><li>Attendance reports by day or month</li><li>A monthly income and spending view, ready to export for your accountant</li></ul>
+                </div>
+                <div class="aud-panel__visual bw-acc__visual ms-visual ms-visual--reporting" role="img" aria-label="A report comparing monthly attendance at three centers, ready to export (sample data)">
+                  <div class="pv-scene pv-scene--report" aria-hidden="true">
+                    <div class="pv-win ms-win--report">
+                      <div class="pv-main">
+                        <p class="pv-title">Attendance by center</p>
+                        <div class="pv-filters"><span>This month</span><span>All centers</span></div>
+                        <div class="ms-chart">
+                          <span style="--h: 82%"><i class="tone-pink"></i><small>Lotus</small></span>
+                          <span style="--h: 64%"><i class="tone-blue"></i><small>Banyan</small></span>
+                          <span style="--h: 74%"><i class="tone-yellow"></i><small>Sunflower</small></span>
+                          <span style="--h: 90%"><i class="tone-mint"></i><small>Group</small></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pv-card ms-card--export">
+                      <p class="ms-card__head"><svg class="icon" aria-hidden="true"><use href="#i-chart" /></svg>Monthly summary</p>
+                      <p class="ms-card__row"><span>Income</span><i class="pv-line" style="--w: 40%"></i></p>
+                      <p class="ms-card__row"><span>Spending</span><i class="pv-line pv-line--soft" style="--w: 28%"></i></p>
+                      <span class="ms-card__btn">Export</span>
+                    </div>
+                    <div class="pv-toast ms-toast--report"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Report ready to share</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="aud-panel" role="tabpanel" id="panel-management" aria-labelledby="tab-management" tabindex="0" hidden>
-              <div class="aud-panel__copy">
-                <h3>A team that runs like clockwork</h3>
-                <ul class="aud-bullets"><li>Plan staff rotas and room assignments</li><li>Keep staff records and roles in one place</li><li>Share weekly menus and updates with families</li></ul>
-                <a class="btn btn--primary btn--sm" href="features.html#f-staff-schedules">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
-              </div>
-              <div class="aud-panel__visual bw-acc__visual bw-acc__visual--management" role="img" aria-label="A weekly checklist for running the centre in THINKBIG (sample data)">
-                <svg class="pv-wave pv-wave--top" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h600v34C470 6 330 2 180 42 110 60 50 66 0 58z" /></svg>
-            <svg class="pv-wave pv-wave--bottom" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90h600V40C520 18 420 30 300 46S90 62 0 30z" /></svg>
-            <span class="pv-confetti pv-confetti--sq" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--tri" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--sq2" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half2" aria-hidden="true"></span>
-                <div class="pv-scene pv-scene--management" aria-hidden="true">
-              <div class="pv-win pv-win--mgmt">
-                <div class="pv-dots"><i></i><i></i><i></i></div>
-                <div class="pv-side">
-                  <span class="pv-side__logo"><svg aria-hidden="true"><use href="#logo-mark" /></svg>THINKBIG</span>
-                  <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-home" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-building" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg><i class="pv-line" style="--w: 70%"></i></span>
-                  <span class="pv-side__nav is-active"><svg class="icon" aria-hidden="true"><use href="#i-users" /></svg><b>Staff</b></span>
-                  <span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-blocks" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-clipboard" /></svg><i class="pv-line" style="--w: 70%"></i></span><span class="pv-side__nav"><svg class="icon" aria-hidden="true"><use href="#i-chart" /></svg><i class="pv-line" style="--w: 70%"></i></span>
+              <div class="aud-panel" role="tabpanel" id="panel-learning" aria-labelledby="tab-learning" tabindex="0" hidden>
+                <div class="aud-panel__copy">
+                  <h3>Support teachers with lesson plans and observations</h3>
+                  <ul class="aud-bullets"><li>Plan weekly themes and activities for every class</li><li>Record Montessori observations with photos and notes</li><li>Turn observations into progress reports families can keep</li></ul>
+                  <a class="btn btn--primary btn--sm" href="features.html#f-lesson-planning">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
+                  <figure class="ms-principle">
+                    <span class="ms-principle__mark" aria-hidden="true"><svg><use href="#logo-mark" /></svg></span>
+                    <blockquote><p>“Children grow at their own pace. Our tools should help adults notice, never rush.”</p></blockquote>
+                    <figcaption>THINKBIG principle · Respect</figcaption>
+                  </figure>
                 </div>
-                <div class="pv-main"></div>
-              </div>
-              <div class="pv-card pv-card--tasks">
-                <p class="pv-tasks__head">Staff rota due in <b>2</b> days</p>
-                <ol class="pv-tasks">
-                  <li><span class="pv-num">1</span><span>Review attendance in THINKBIG</span><a tabindex="-1">Review attendance</a></li>
-                  <li><span class="pv-num">2</span><span>Confirm next week's staff rota</span><a tabindex="-1">Confirm rota</a></li>
-                  <li><span class="pv-num">3</span><span>Share the weekly menu with families</span><a tabindex="-1">Open <svg class="icon pv-ext" aria-hidden="true"><use href="#i-arrow" /></svg></a></li>
-                </ol>
-              </div>
-                </div>
-              </div>
-            </div>
-            <div class="aud-panel" role="tabpanel" id="panel-health" aria-labelledby="tab-health" tabindex="0" hidden>
-              <div class="aud-panel__copy">
-                <h3>Safety details at your fingertips</h3>
-                <ul class="aud-bullets"><li>Highlight allergies and medical notes for the right adults</li><li>Confirm authorized pickups at the door</li><li>Log drills, incidents and wellbeing notes</li></ul>
-                <a class="btn btn--primary btn--sm" href="features.html#f-health-safety">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
-              </div>
-              <div class="aud-panel__visual bw-acc__visual bw-acc__visual--admissions" role="img" aria-label="A child health record with allergy, pickup and meal details (sample data)">
-                <svg class="pv-wave pv-wave--top" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h600v34C470 6 330 2 180 42 110 60 50 66 0 58z" /></svg>
-            <svg class="pv-wave pv-wave--bottom" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90h600V40C520 18 420 30 300 46S90 62 0 30z" /></svg>
-            <span class="pv-confetti pv-confetti--sq" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--tri" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--sq2" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half2" aria-hidden="true"></span>
-                <div class="pv-scene pv-scene--health" aria-hidden="true">
-              <div class="pv-card pv-card--health">
-                <div class="pv-person"><span class="avatar avatar--a">A</span><span><b>Ananya Rao</b><i class="pv-line pv-line--soft" style="--w: 50%"></i></span></div>
-                <p class="pv-alert"><svg class="icon" aria-hidden="true"><use href="#i-alert" /></svg>Peanut allergy · keep EpiPen in office</p>
-                <p class="pv-sub">Authorized pickup</p>
-                <ul class="pv-pick"><li><span class="avatar avatar--e">P</span>Priya (Mother)</li><li><span class="avatar avatar--d">A</span>Arjun (Uncle)</li></ul>
-                <p class="pv-sub">Lunch</p>
-                <p class="pv-meal">Rice, dal, carrots <span class="chip chip--ok">Ate most</span></p>
-              </div>
-              <div class="pv-toast pv-toast--health"><svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg>Fire drill complete</div>
-                </div>
-              </div>
-            </div>
-            <div class="aud-panel" role="tabpanel" id="panel-learning" aria-labelledby="tab-learning" tabindex="0" hidden>
-              <div class="aud-panel__copy">
-                <h3>Learning you can see</h3>
-                <ul class="aud-bullets"><li>Plan lessons and daily routines</li><li>Record observations with photos</li><li>Share milestones and progress with families</li></ul>
-                <a class="btn btn--primary btn--sm" href="features.html#f-montessori-observations">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron" /></svg></a>
-              </div>
-              <div class="aud-panel__visual bw-acc__visual bw-acc__visual--learning" role="img" aria-label="A Montessori lesson plan and a teacher adding an observation (sample data)">
-                <svg class="pv-wave pv-wave--top" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h600v34C470 6 330 2 180 42 110 60 50 66 0 58z" /></svg>
-            <svg class="pv-wave pv-wave--bottom" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90h600V40C520 18 420 30 300 46S90 62 0 30z" /></svg>
-            <span class="pv-confetti pv-confetti--sq" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--tri" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--sq2" aria-hidden="true"></span>
-            <span class="pv-confetti pv-confetti--half2" aria-hidden="true"></span>
-                <div class="pv-scene pv-scene--learning" aria-hidden="true">
+                <div class="aud-panel__visual bw-acc__visual bw-acc__visual--learning ms-visual" role="img" aria-label="A Montessori lesson plan and a teacher adding an observation (sample data)">
+                  <div class="pv-scene pv-scene--learning" aria-hidden="true">
               <div class="pv-paper pv-paper--back">
                 <p class="pv-paper__kicker">Sensorial · Lesson 8</p>
                 <p class="pv-paper__title pv-paper__title--sm">Colour tablets</p>
@@ -375,140 +396,235 @@
                 </div>
               </div>
                 </div>
+                </div>
               </div>
             </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <!-- Resource -->
-      <section class="section aud-res" aria-labelledby="res-title">
-        <div class="container aud-res__inner">
-          <div class="aud-res__copy" data-reveal>
-            <p class="aud-res__kicker">Early years guide</p>
-            <h2 class="aud-res__title" id="res-title">Keep standards consistent across your centers</h2>
-            <p class="aud-res__lead">Ways group leaders keep every location on the same page:</p>
-            <ul class="aud-bullets"><li>Agree on shared routines for drop-off, meals and pickup</li><li>Use the same fee plans and forms everywhere</li><li>Review a short weekly snapshot from each center</li><li>Use THINKBIG’s multi-location dashboard to see everything in one place</li></ul>
-          </div>
-          <div class="aud-res__art" data-reveal="left">
-            <div class="guide guide--cover" aria-hidden="true">
-              <span class="guide__sun"></span><span class="guide__block"></span>
-              <div class="guide__label"><span class="guide__brand"><svg><use href="#logo-mark" /></svg>THINKBIG</span><b>Keep standards consistent across your centers</b><small>An early years guide</small></div>
-            </div>
-            <div class="guide guide--page" aria-hidden="true">
-              <div class="guide__row"><span class="tone-pink"></span><i></i><i></i></div><div class="guide__row"><span class="tone-yellow"></span><i></i><i></i></div><div class="guide__row"><span class="tone-mint"></span><i></i><i></i></div>
-            </div>
-            <a class="btn btn--primary aud-res__btn" href="./#demo">Talk to our team</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Why choose -->
-      <section class="section aud-choose" aria-labelledby="choose-title">
+      <!-- Every location matters -->
+      <section class="section ms-props" aria-labelledby="props-title">
         <div class="container">
-          <h2 class="section-title aud-choose__title" id="choose-title" data-split>Why choose THINKBIG for your multisite centers</h2>
-          <ul class="aud-choose__list"><li><h3>Guided setup</h3><p>We help you add classrooms, children and staff, and bring your existing records across, so you are ready from the first day.</p></li>
-<li><h3>Help when you need it</h3><p>Our team walks your staff through THINKBIG in a guided demo and is there to answer questions as you get started.</p></li>
-<li><h3>One connected platform</h3><p>Attendance, billing, admissions, communication and learning records share the same information, so nothing is typed twice.</p></li>
-<li><h3>A quote made for you</h3><p>Pricing is tailored to your program and your number of locations. Tell us about your school and we will prepare it.</p></li>
-<li><h3>Built for early years</h3><p>Designed around real preschool and Montessori routines: drop-offs, meals, naps, observations and family updates.</p></li></ul>
+          <header class="section-head section-head--wide">
+            <h2 class="section-title" id="props-title" data-split>Every location matters. Run them all like one</h2>
+            <p class="section-lead">Operate, grow and scale every center with one connected system built for early years groups.</p>
+          </header>
+          <div class="ms-props__card" data-reveal>
+            <div class="ms-prop">
+              <span class="ms-prop__icon tint-blue"><svg class="icon" aria-hidden="true"><use href="#i-building" /></svg></span>
+              <h3>Centralize operations across every location</h3>
+              <ul class="ms-checks">
+                <li>Switch between centers instantly, or see the whole group at once</li>
+                <li>Family, child and staff records for every center</li>
+                <li>Shared settings, with room for each center’s own routines</li>
+                <li>Rooms, age groups and capacities for each center</li>
+                <li>Staff rotas, leave and check-in by center</li>
+                <li>Access by role and location</li>
+                <li>Digital consent and permission forms for every family</li>
+                <li>Allergy, medical and pickup details for the right adults</li>
+                <li>One system of record for the whole group</li>
+              </ul>
+            </div>
+            <div class="ms-prop">
+              <span class="ms-prop__icon tint-mint"><svg class="icon" aria-hidden="true"><use href="#i-wallet" /></svg></span>
+              <h3>Billing &amp; finances built for groups</h3>
+              <ul class="ms-checks">
+                <li>Shared fee plans by program, class or child</li>
+                <li>Recurring and one-off charges</li>
+                <li>Branded invoices sent through the app or by email</li>
+                <li>Receipts and a full payment history for each family</li>
+                <li>Discounts, sibling offers and late fees</li>
+                <li>Gentle reminders for overdue fees</li>
+                <li>Expense tracking, with exports for your accountant</li>
+                <li>Income and spending for each center or the whole group</li>
+              </ul>
+            </div>
+            <div class="ms-prop">
+              <span class="ms-prop__icon tint-pink"><svg class="icon" aria-hidden="true"><use href="#i-sprout" /></svg></span>
+              <h3>Grow enrollment &amp; family trust</h3>
+              <ul class="ms-checks">
+                <li>Online enquiry and application forms</li>
+                <li>Tour booking and follow-ups</li>
+                <li>Waitlists by program</li>
+                <li>Offer and enrollment tracking</li>
+                <li>Daily updates and photos in the parent app</li>
+                <li>Weekly menus shared with families</li>
+                <li>Progress reports families can read and keep</li>
+                <li>The same friendly experience at every center</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Principles carousel -->
+      <section class="section ms-quotes" aria-labelledby="mq-quotes-title">
+        <div class="container">
+          <header class="section-head">
+            <h2 class="section-title" id="mq-quotes-title" data-split>What guides THINKBIG for growing groups</h2>
+            <p class="section-lead">Stories from multisite groups will appear here once they’re verified. Until then, these are the promises behind THINKBIG.</p>
+          </header>
+        </div>
+        <div class="ms-slider" data-ms-slider aria-roledescription="carousel" aria-label="THINKBIG principles">
+          <div class="ms-slider__viewport">
+            <ul class="ms-slider__track" data-ms-track>
+              <li class="ms-slide" aria-roledescription="slide" aria-label="1 of 5">
+                <div class="ms-slide__art tone-pink" aria-hidden="true"><svg class="ms-slide__sun"><use href="#art-sun" /></svg></div>
+                <figure class="ms-slide__quote">
+                  <span class="ms-slide__mark" aria-hidden="true">“</span>
+                  <blockquote><p>Every minute saved on paperwork is a minute a teacher can spend kneeling beside a child.</p></blockquote>
+                  <figcaption><b>Time</b><span>THINKBIG principle</span></figcaption>
+                </figure>
+              </li>
+              <li class="ms-slide" aria-roledescription="slide" aria-label="2 of 5">
+                <div class="ms-slide__art tone-blue" aria-hidden="true"><svg class="ms-slide__cloud"><use href="#art-cloud" /></svg></div>
+                <figure class="ms-slide__quote">
+                  <span class="ms-slide__mark" aria-hidden="true">“</span>
+                  <blockquote><p>Families deserve a window into their child’s day, not just a report at the end of the term.</p></blockquote>
+                  <figcaption><b>Connection</b><span>THINKBIG principle</span></figcaption>
+                </figure>
+              </li>
+              <li class="ms-slide" aria-roledescription="slide" aria-label="3 of 5">
+                <div class="ms-slide__art tone-yellow" aria-hidden="true"><svg class="ms-slide__star"><use href="#art-star" /></svg></div>
+                <figure class="ms-slide__quote">
+                  <span class="ms-slide__mark" aria-hidden="true">“</span>
+                  <blockquote><p>Children grow at their own pace. Our tools should help adults notice, never rush.</p></blockquote>
+                  <figcaption><b>Respect</b><span>THINKBIG principle</span></figcaption>
+                </figure>
+              </li>
+              <li class="ms-slide" aria-roledescription="slide" aria-label="4 of 5">
+                <div class="ms-slide__art tone-mint" aria-hidden="true"><svg class="ms-slide__rainbow"><use href="#art-rainbow" /></svg></div>
+                <figure class="ms-slide__quote">
+                  <span class="ms-slide__mark" aria-hidden="true">“</span>
+                  <blockquote><p>Safety comes first: the right details, with the right people, at the right moment.</p></blockquote>
+                  <figcaption><b>Care</b><span>THINKBIG principle</span></figcaption>
+                </figure>
+              </li>
+              <li class="ms-slide" aria-roledescription="slide" aria-label="5 of 5">
+                <div class="ms-slide__art tone-lav" aria-hidden="true"><svg class="ms-slide__plane"><use href="#art-plane" /></svg></div>
+                <figure class="ms-slide__quote">
+                  <span class="ms-slide__mark" aria-hidden="true">“</span>
+                  <blockquote><p>Simple enough for every teacher and every family to use from the very first day.</p></blockquote>
+                  <figcaption><b>Simplicity</b><span>THINKBIG principle</span></figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+          <div class="carousel__nav ms-slider__nav">
+            <button class="carousel__btn" type="button" data-ms-prev aria-label="Previous principle"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></button>
+            <button class="carousel__btn" type="button" data-ms-next aria-label="Next principle"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></button>
+          </div>
+          <div class="ms-slider__dots" data-ms-dots></div>
+          <p class="visually-hidden" aria-live="polite" data-ms-status></p>
+        </div>
+      </section>
+
+      <!-- Switching -->
+      <section class="section aud-choose ms-switching" aria-labelledby="switch-title">
+        <div class="container">
+          <h2 class="section-title aud-choose__title" id="switch-title" data-split>Move every center to THINKBIG from paper, spreadsheets or other software</h2>
+          <ul class="aud-choose__list">
+            <li><h3>Guided setup</h3><p>We help you add each center’s classrooms, children and staff, so every location is ready from the first day.</p></li>
+            <li><h3>Help when you need it</h3><p>Our team walks your directors and staff through THINKBIG in a guided demo and answers questions as you get started.</p></li>
+            <li><h3>Bring your records across</h3><p>Bring your existing records across instead of starting from scratch, so families, fees and rooms are in place before you switch.</p></li>
+            <li><h3>A quote made for your group</h3><p>Pricing is tailored to your program and your number of locations. Tell us about your group and we will prepare it.</p></li>
+            <li><h3>Updates as they happen</h3><p>Check-ins, daily updates and payments appear as soon as they are recorded, at every center.</p></li>
+            <li><h3>Scheduling and lesson planning in one place</h3><p>Staff rotas, daily routines and weekly lesson plans live alongside everything else, so nothing is typed twice.</p></li>
+            <li><h3><a href="whats-new.html">New features through the year</a></h3><p>See the latest product updates and the features we are working on next.</p></li>
+            <li><h3><a href="features.html">Compare every THINKBIG feature</a></h3><p>For groups that are growing, see the multi-location dashboard, group-wide reports, shared fee plans and access by role and location side by side with every other tool.</p></li>
+          </ul>
         </div>
       </section>
 
       <!-- Tasks -->
-      <section class="section aud-tasks" aria-labelledby="tasks-title">
+      <section class="section aud-tasks ms-tasks" aria-labelledby="tasks-title">
         <div class="container">
           <header class="section-head section-head--wide">
-            <h2 class="section-title" id="tasks-title" data-split>Common multisite tasks that slow you down</h2>
-            <p class="section-lead">Running several centers multiplies the paperwork. THINKBIG helps you bring these jobs into one place:</p>
+            <h2 class="section-title" id="tasks-title" data-split>Common multisite center tasks that slow you down</h2>
+            <p class="section-lead">Running several centers means dozens of daily jobs, and the time adds up quickly when you work on paper or juggle separate tools. If these sound familiar, see how THINKBIG brings them into one place:</p>
           </header>
-          <div class="aud-tasks__cols"><ul><li>Collecting attendance reports from each center</li><li>Merging fee spreadsheets every month</li><li>Keeping fee plans in sync across locations</li><li>Moving children between centers on paper</li><li>Comparing enrollment by phone and email</li></ul><ul><li>Sharing forms and templates by hand</li><li>Tracking staff across sites</li><li>Rolling out announcements center by center</li><li>Building group reports from scratch</li><li>Managing logins for every center separately</li></ul></div>
-        </div>
-      </section>
-
-      <!-- More ways to support -->
-      <section class="section bw-audience" aria-labelledby="band-title">
-        <div class="container">
-          <div class="aud-band">
-            <h2 class="aud-band__title" id="band-title">THINKBIG has more ways to support your group</h2>
-            <ul class="aud-grid">
-            <li class="aud-card" data-reveal style="--d: 0">
-              <span class="aud-card__icon aud-card__icon--yellow"><svg class="icon" aria-hidden="true"><use href="#i-clipboard" /></svg></span>
-              <h3>Admissions &amp; enrollment</h3>
-              <p>Online enquiry forms, tours and waitlists, with every family’s stage in one pipeline.</p>
-              <a class="text-link" href="features.html#f-admissions-enrollment">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow" /></svg></a>
-            </li>
-            <li class="aud-card" data-reveal style="--d: 1">
-              <span class="aud-card__icon aud-card__icon--teal"><svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg></span>
-              <h3>Communication</h3>
-              <p>Messages, announcements and daily updates that keep families close to their child’s day.</p>
-              <a class="text-link" href="features.html#f-family-communication">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow" /></svg></a>
-            </li>
-            <li class="aud-card" data-reveal style="--d: 2">
-              <span class="aud-card__icon aud-card__icon--pink"><svg class="icon" aria-hidden="true"><use href="#i-sprout" /></svg></span>
-              <h3>Learning &amp; Montessori</h3>
-              <p>Observations, lesson plans and progress reports that follow each child’s own journey.</p>
-              <a class="text-link" href="features.html#f-montessori-observations">Learn more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow" /></svg></a>
-            </li>
+          <div class="aud-tasks__cols ms-tasks__cols">
+            <ul>
+              <li><a href="features.html#f-billing-payments">Collecting fees from every center by hand</a></li>
+              <li><a href="features.html#f-admissions-enrollment">Typing enrollment details into spreadsheets</a></li>
+              <li><a href="features.html#f-attendance-checkin">Merging attendance reports from each center</a></li>
+              <li><a href="features.html#f-staff-schedules">Copying staff rotas between tools</a></li>
+              <li><a href="features.html#f-multi-location">Keeping fee plans in sync across locations</a></li>
+            </ul>
+            <ul>
+              <li><a href="features.html#f-fee-invoices">Writing invoices for every family by hand</a></li>
+              <li><a href="features.html#f-family-communication">Emailing families one by one about updates</a></li>
+              <li><a href="features.html#f-forms-documents">Chasing consent forms on paper</a></li>
+              <li><a href="features.html#f-multi-location">Building group reports from scratch</a></li>
+              <li><a href="features.html#f-multi-location">Managing a separate login for every center</a></li>
             </ul>
           </div>
         </div>
       </section>
 
       <!-- FAQ -->
-      <section class="section aud-faq" aria-labelledby="afaq-title">
+      <section class="section aud-faq ms-faq" aria-labelledby="afaq-title">
         <div class="container">
-          <h2 class="section-title aud-faq__title" id="afaq-title" data-split>Frequently asked questions about software for multisite centers</h2>
+          <h2 class="section-title aud-faq__title" id="afaq-title" data-split>Frequently asked questions about multisite centers</h2>
           <div class="accordion aud-faq__list" data-accordion>
             <div class="acc-item">
-              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-1" id="afaq-1-btn">What is multisite childcare software?<span class="acc-icon" aria-hidden="true"></span></button></h3>
-              <div class="acc-panel" id="afaq-1" role="region" aria-labelledby="afaq-1-btn"><div><p>It is one platform for a group of centers: each location runs its day in THINKBIG, and leaders see every center from a single dashboard.</p></div></div>
+              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-1" id="afaq-1-btn">What key features does THINKBIG offer for multisite centers?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+              <div class="acc-panel" id="afaq-1" role="region" aria-labelledby="afaq-1-btn"><div><p>A multi-location dashboard, group-wide reports, shared settings and fee plans, and access by role and location. Each center also gets the full set of THINKBIG tools: attendance, billing, admissions, staff schedules, family communication and learning records. <a href="features.html">See every feature</a>.</p></div></div>
             </div>
             <div class="acc-item">
-              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-2" id="afaq-2-btn">Can I see all my centers at once?<span class="acc-icon" aria-hidden="true"></span></button></h3>
-              <div class="acc-panel" id="afaq-2" role="region" aria-labelledby="afaq-2-btn"><div><p>Yes. Switch between locations or view combined information for the whole group.</p></div></div>
+              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-2" id="afaq-2-btn">What are the benefits of running several centers with THINKBIG?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+              <div class="acc-panel" id="afaq-2" role="region" aria-labelledby="afaq-2-btn"><div><p>You see what is happening at every location without collecting spreadsheets, fee plans and forms stay the same everywhere, and families get the same friendly app whichever center their child attends.</p></div></div>
             </div>
             <div class="acc-item">
-              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-3" id="afaq-3-btn">Can centers share fee plans and forms?<span class="acc-icon" aria-hidden="true"></span></button></h3>
-              <div class="acc-panel" id="afaq-3" role="region" aria-labelledby="afaq-3-btn"><div><p>Yes. Set up fee plans, forms and templates once and use them across your locations.</p></div></div>
+              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-3" id="afaq-3-btn">How can I switch between locations easily?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+              <div class="acc-panel" id="afaq-3" role="region" aria-labelledby="afaq-3-btn"><div><p>From one login you can switch between your centers or view combined information for the whole group.</p></div></div>
             </div>
             <div class="acc-item">
-              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-4" id="afaq-4-btn">Can staff only see their own center?<span class="acc-icon" aria-hidden="true"></span></button></h3>
-              <div class="acc-panel" id="afaq-4" role="region" aria-labelledby="afaq-4-btn"><div><p>Access can be set by role and location, so each person sees what is relevant to them.</p></div></div>
+              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-4" id="afaq-4-btn">Does THINKBIG offer user roles and permissions?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+              <div class="acc-panel" id="afaq-4" role="region" aria-labelledby="afaq-4-btn"><div><p>Yes. Access can be set by role and location, so directors, center managers and teachers each see what is relevant to them.</p></div></div>
             </div>
             <div class="acc-item">
-              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-5" id="afaq-5-btn">How is pricing worked out for groups?<span class="acc-icon" aria-hidden="true"></span></button></h3>
-              <div class="acc-panel" id="afaq-5" role="region" aria-labelledby="afaq-5-btn"><div><p>Pricing depends on your number of locations and program size. Tell us about your group and we will prepare a quote.</p></div></div>
+              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-5" id="afaq-5-btn">Can I run reports across all my locations at once?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+              <div class="acc-panel" id="afaq-5" role="region" aria-labelledby="afaq-5-btn"><div><p>Yes. Group-wide reports let you compare your centers and spot what needs attention, alongside attendance reports by day or month and a monthly income and spending view.</p></div></div>
             </div>
             <div class="acc-item">
-              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-6" id="afaq-6-btn">How is children’s information handled?<span class="acc-icon" aria-hidden="true"></span></button></h3>
-              <div class="acc-panel" id="afaq-6" role="region" aria-labelledby="afaq-6-btn"><div><p>We take children’s information seriously. During your demo we explain how information is stored, who can access it and how your group stays in control.</p></div></div>
+              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-6" id="afaq-6-btn">How is my centers’ and families’ information handled?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+              <div class="acc-panel" id="afaq-6" role="region" aria-labelledby="afaq-6-btn"><div><p>We take children’s information seriously. During your demo we explain how information is stored, who can access it and how your group stays in control. You can also read our <a href="privacy.html">privacy policy</a>.</p></div></div>
+            </div>
+            <div class="acc-item">
+              <h3><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="afaq-7" id="afaq-7-btn">Where can I find more information about THINKBIG pricing?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+              <div class="acc-panel" id="afaq-7" role="region" aria-labelledby="afaq-7-btn"><div><p>Pricing depends on your program and your number of locations. Answer a few quick questions on the <a href="pricing.html">pricing page</a> and we will prepare a quote for your group.</p></div></div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Product facts -->
+      <section class="section bw-stats ms-stats" aria-label="THINKBIG at a glance">
+        <div class="container"><ul class="stat-row"><li class="stat stat--pink"><strong data-count="19">19</strong><span>Features in one connected platform</span></li><li class="stat stat--lav"><strong data-count="6">6</strong><span>Montessori learning areas you can track</span></li><li class="stat stat--blue"><strong data-count="3">3</strong><span>Views: schools, teachers and families</span></li><li class="stat stat--green"><strong data-count="4">4</strong><span>Program types, from day care to multisite</span></li></ul></div>
+      </section>
+
       <!-- Explore -->
-      <section class="section aud-explore" aria-labelledby="ex-title">
+      <section class="section aud-explore ms-explore" aria-labelledby="ex-title">
         <div class="container">
-          <h2 class="section-title aud-explore__title" id="ex-title" data-split>Explore more of THINKBIG</h2>
+          <h2 class="section-title aud-explore__title" id="ex-title" data-split>Explore more about running several centers with THINKBIG</h2>
           <ul class="ex-grid">
             <li class="ex-card" data-reveal style="--d: 0">
-              <div class="ex-card__art tone-pink" aria-hidden="true"><svg class="icon"><use href="#i-sparkle" /></svg></div>
+              <div class="ex-card__art tone-pink" aria-hidden="true"><svg class="icon"><use href="#i-pin" /></svg></div>
               <div class="ex-card__body">
-                <p class="ex-card__tags"><span>Product</span><span>Page</span></p>
-                <h3><a href="features.html">Explore every THINKBIG feature</a></h3>
-                <p>Nineteen tools for billing, communication, learning and school management, side by side.</p>
-                <span class="text-link" aria-hidden="true">See all features <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+                <p class="ex-card__tags"><span>Product</span><span>Feature</span></p>
+                <h3><a href="features.html#f-multi-location">The multi-location dashboard</a></h3>
+                <p>Run several centers from one login, switching between them or seeing the whole group at once.</p>
+                <span class="text-link" aria-hidden="true">Read more <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow" /></svg></span>
               </div>
             </li>
             <li class="ex-card" data-reveal style="--d: 1">
               <div class="ex-card__art tone-yellow" aria-hidden="true"><svg class="icon"><use href="#i-wallet" /></svg></div>
               <div class="ex-card__body">
                 <p class="ex-card__tags"><span>Pricing</span><span>Page</span></p>
-                <h3><a href="pricing.html">Get pricing for your program</a></h3>
-                <p>Answer a few quick questions about your school and get a quote that fits your size.</p>
+                <h3><a href="pricing.html">Get pricing for your group</a></h3>
+                <p>Answer a few quick questions about your centers and get a quote that fits your size.</p>
                 <span class="text-link" aria-hidden="true">Get your pricing <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow" /></svg></span>
               </div>
             </li>

@@ -14,6 +14,7 @@ import './styles/page-motion.css';
 import './styles/home.css';
 import './styles/whats-new.css';
 import './styles/audience.css';
+import './styles/multisite.css';
 
 import { initHeader } from './js/header.js';
 import { initSearch } from './js/search.js';
@@ -31,6 +32,7 @@ import { initPageMotion } from './js/page-motion.js';
 import { initHome } from './js/home.js';
 import { initWhatsNew } from './js/whats-new.js';
 import { initAudienceTabs } from './js/audience.js';
+import { initMultisite } from './js/multisite.js';
 
 document.documentElement.classList.add('js');
 
@@ -40,6 +42,7 @@ initPricingForm();
 initHome();
 initWhatsNew();
 initAudienceTabs();
+initMultisite();
 initHeader();
 initSearch();
 initAccordion();
