@@ -28,8 +28,6 @@ jobs:
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
           VITE_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
-          # Public URL of the THINKBIG AI chat API (Settings → Secrets and variables → Actions → Variables)
-          VITE_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

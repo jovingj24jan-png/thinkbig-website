@@ -57,7 +57,7 @@ All settings live in `src/config.js`:
 | `LOGIN_URL` | Target of every **Login** link. While empty, clicking Login shows a "not available yet" message. |
 | `DEMO_FORM_ENDPOINT` | URL that receives demo requests and pricing requests (sent with `type: "pricing"`) as a JSON `POST`. While empty, the form runs in **preview mode**: it validates input and clearly tells the visitor the request was **not** sent. |
 | `APP_STORES` | App Store and Google Play listings. While a `url` is empty, the store badges (pricing page strip and every footer) and the store cards (pricing page) show **Coming soon**. Add the real store `url`, and the `rating` and `reviews` from that listing, to show download links, stars and review counts. Never enter ratings that aren't on the real listing. |
-| `CHAT_API_URL` | Address of the THINKBIG AI chat API (`…/chat`). Also settable with the `CHAT_API_URL` repository variable, which the deploy workflow passes as `VITE_CHAT_API_URL`. While empty, the chat panel says the assistant is not connected yet. See `chat-api/README.md`. |
+| `CHAT_API_URL` | Endpoint of a future THINKBIG AI chat API. Leave empty: the chat then runs as a labelled preview with sample answers. See **THINKBIG AI chat** below. |
 | `CONTACT.email` / `CONTACT.phone` | Public contact details shown under the address in the Contact section. Hidden while empty. |
 
 ### Connecting the demo form
@@ -155,7 +155,18 @@ thinkbig-website/
 - The form has visible labels, inline error messages linked with `aria-describedby`, and a live status region.
 - `prefers-reduced-motion` turns off continuous animation, parallax and reveal effects. Continuous decoration also stops below 640px.
 
-## THINKBIG AI assistant
+## THINKBIG AI chat (preview)
 
-Every page (except the legal pages) shows a chat launcher in the bottom-right corner. The panel (`src/js/chat.js`, `src/styles/chat.css`) streams answers from a small Cloudflare Worker in `chat-api/`, which keeps the Anthropic API key server-side and grounds Claude in the website's own content (`chat-api/src/knowledge.json`, rebuilt with `npm run knowledge`). Setup, environment variables and deployment steps are in [`chat-api/README.md`](chat-api/README.md).
+Every page except the legal pages shows a chat launcher in the bottom-right corner. It is **frontend only** for now:
 
+- **What visitors see:** a THINKBIG AI panel with a greeting, next-step cards, eight suggested questions, message bubbles, a typing indicator, Stop, New chat, and error and retry states. It is clearly marked as a preview: the header reads "Preview · sample answers", a note says answers are pre-written samples rather than live AI, and every answer carries a **Sample response** tag.
+- **Where answers come from:** `src/js/chat/samples.js`, pre-written answers that only use what the website already says, matched to the question by keyword, with links to the relevant pages. Questions without a sample get an honest "this is a preview" reply that points to the features page and the demo form.
+- **Code:** `src/js/chat/index.js` (interface), `src/js/chat/providers.js` (answer source), `src/js/chat/samples.js` (sample answers), `src/js/chat/markdown.js` (safe rendering: only links to this website's pages become links), `src/styles/chat.css` (styles, built from the design tokens).
+- **Testing the error state:** add `?chat-demo=error` to any page URL; the next sample answer fails once so **Try again** can be checked.
+- **Conversation storage:** `sessionStorage` only, so a chat follows the visitor between pages in the same tab and disappears when the tab closes or **New chat** is pressed. Nothing is sent anywhere.
+
+### Connecting real AI (future step)
+
+Real AI answers need a small server that holds the AI provider's API key; a static GitHub Pages site cannot keep a secret. When that server exists, set `CHAT_API_URL` in `src/config.js` to its endpoint. The interface switches from the sample provider to the live provider in `src/js/chat/providers.js`, which posts `{ messages: [{ role, content }] }` and reads server-sent events (`sources`, `text`, `reset`, `done`, `error`). The preview labels disappear automatically in live mode. Never put an API key in this repository or in `src/config.js`.
+
+An earlier Cloudflare Worker implementation of that server (Claude, grounded in the website content) is kept in Git history at commit `77b758b` (`chat-api/`), ready to restore when the backend step starts.

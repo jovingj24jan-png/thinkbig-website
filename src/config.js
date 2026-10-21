@@ -10,12 +10,11 @@ export const LOGIN_URL = '';
 // own API). Never paste a private API key here.
 export const DEMO_FORM_ENDPOINT = '';
 
-// THINKBIG AI chat assistant: the URL of the deployed chat API (see chat-api/README.md),
-// for example 'https://thinkbig-chat-api.<your-subdomain>.workers.dev/chat'. Set it here or
-// through the VITE_CHAT_API_URL build variable (the deploy workflow reads the CHAT_API_URL
-// repository variable). It is a public address, not a secret: the AI provider key lives only
-// on the server. While empty, the chat panel says the assistant is not connected yet.
-export const CHAT_API_URL = import.meta.env?.VITE_CHAT_API_URL || '';
+// THINKBIG AI chat. Leave empty: the chat runs as a clearly labelled preview with pre-written
+// sample answers (src/js/chat/samples.js). Connecting real AI is a future step: set this to an
+// API endpoint that streams answers (contract in src/js/chat/providers.js). It is a public
+// address, never a secret; API keys must stay on that server and never appear in this code.
+export const CHAT_API_URL = '';
 
 // App store listings. Leave a url empty until that app is published: the site then
 // shows "Coming soon". Add rating (e.g. 4.8) and reviews (e.g. '1,200+') only from the

@@ -1,5 +1,6 @@
 import '@fontsource/fredoka/latin-600.css';
 import '@fontsource/nunito-sans/latin-400.css';
+import '@fontsource/nunito-sans/latin-600.css';
 import '@fontsource/nunito-sans/latin-700.css';
 
 import './styles/tokens.css';

@@ -1,6 +1,7 @@
 import '@fontsource/fredoka/latin-600.css';
 import '@fontsource/nunito-sans/latin-400.css';
 import '@fontsource/nunito-sans/latin-500.css';
+import '@fontsource/nunito-sans/latin-600.css';
 import '@fontsource/nunito-sans/latin-700.css';
 
 import './styles/tokens.css';
@@ -34,7 +35,7 @@ import { initHome } from './js/home.js';
 import { initWhatsNew } from './js/whats-new.js';
 import { initAudienceTabs } from './js/audience.js';
 import { initMultisite } from './js/multisite.js';
-import { initChat } from './js/chat.js';
+import { initChat } from './js/chat/index.js';
 
 document.documentElement.classList.add('js');
 

@@ -2401,12 +2401,16 @@
   gap: var(--s-12);
 }
 
-.brand--footer .brand__word {
-  color: #fff;
+/* Full logo with tagline; THINK and the tagline turn light on the dark footer */
+.brand--footer {
+  --tb-logo-ink: #fff;
+  --tb-logo-tagline: #d7deea;
 }
 
-.brand--footer .brand__word span {
-  color: #ff9cbf;
+.brand--footer .brand__logo--full {
+  width: min(300px, 100%);
+  height: auto;
+  aspect-ratio: 1117 / 328;
 }
 
 .footer__tag {

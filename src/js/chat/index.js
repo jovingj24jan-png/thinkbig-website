@@ -1,11 +1,12 @@
-import { CHAT_API_URL } from '../config.js';
-import { prefersReducedMotion } from './utils.js';
+import { prefersReducedMotion } from '../utils.js';
+import { chatProvider, ChatError } from './providers.js';
+import { escapeHtml, renderMarkdown, safeHref } from './markdown.js';
 
 /*
- * THINKBIG AI: a floating website assistant. Answers come from the chat API
- * (chat-api/), which grounds a Claude model in the website's own content.
- * The conversation lives in sessionStorage, so it follows the visitor across
- * pages in this tab only and disappears when the tab closes or "New chat" is used.
+ * THINKBIG AI chat: floating launcher, panel and conversation UI. Answers come from
+ * chatProvider (providers.js): pre-written sample answers today, a real API later.
+ * The conversation lives in sessionStorage, so it follows the visitor across pages
+ * in this tab only and disappears when the tab closes or "New chat" is used.
  */
 
 const GREETING = "Hi! 👋 I'm the THINKBIG assistant. I can help you explore our preschool and Montessori management platform, find features, and learn how to get started. What would you like to know?";
@@ -21,47 +22,27 @@ const SUGGESTIONS = [
 ];
 const STORE_KEY = 'thinkbig-chat';
 const NUDGE_KEY = 'thinkbig-chat-nudged';
-const MAX_HISTORY = 19; // the API accepts up to 20 messages; the new question is the 20th
+const MAX_HISTORY = 19; // a real API should accept up to 20 messages; the new question is the 20th
 const MAX_INPUT = 1500;
 
 const BASE = import.meta.env.BASE_URL;
-const configured = Boolean(CHAT_API_URL);
+const sample = chatProvider.mode === 'sample';
 
-const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-
-// Only links to this website's own pages are rendered as links
-function safeHref(href) {
-  if (/^#[\w-]+$/.test(href)) return href;
-  const m = href.match(/^(?:\.\/|\/)?([a-z-]+\.html)(#[\w-]+)?$/);
-  return m ? `${BASE}${m[1]}${m[2] ?? ''}` : null;
-}
-
-function inline(text) {
-  return escapeHtml(text)
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (all, label, href) => {
-      const url = safeHref(href.replace(/&amp;/g, '&'));
-      return url ? `<a href="${url}">${label}</a>` : label;
-    });
-}
-
-// A small Markdown subset: paragraphs, bullet lists, bold and site links
-function renderMarkdown(text) {
-  const blocks = [];
-  let list = null;
-  text.split('\n').forEach((line) => {
-    const item = line.match(/^\s*(?:[-*•]|\d+\.)\s+(.*)/);
-    if (item) {
-      list ??= [];
-      list.push(`<li>${inline(item[1])}</li>`);
-      return;
-    }
-    if (list) { blocks.push(`<ul>${list.join('')}</ul>`); list = null; }
-    if (line.trim()) blocks.push(`<p>${inline(line.trim())}</p>`);
-  });
-  if (list) blocks.push(`<ul>${list.join('')}</ul>`);
-  return blocks.join('');
-}
+const TEXT = sample
+  ? {
+    launcher: 'Open the THINKBIG AI chat preview',
+    status: 'Preview · sample answers',
+    note: `Preview: answers are pre-written samples, not live AI. Please don't share personal or children's details. Need a person? <a href="${BASE}index.html#demo">Talk to our team</a>.`,
+    nudge: 'Questions about THINKBIG? <strong>Try our assistant preview</strong>',
+    askCard: ['Ask THINKBIG AI', 'Preview with sample answers'],
+  }
+  : {
+    launcher: 'Chat with THINKBIG AI',
+    status: 'Answers from our website',
+    note: `You're chatting with AI, which can make mistakes. Please don't share personal or children's details. Need a person? <a href="${BASE}index.html#demo">Talk to our team</a>.`,
+    nudge: 'Questions about THINKBIG? <strong>Ask our AI assistant</strong>',
+    askCard: ['Ask THINKBIG AI', 'Answers from our website in seconds'],
+  };
 
 function load() {
   try { return JSON.parse(sessionStorage.getItem(STORE_KEY)) ?? []; } catch { return []; }
@@ -75,31 +56,31 @@ const icon = (id, cls = 'icon') => `<svg class="${cls}" aria-hidden="true"><use 
 
 function markup() {
   const root = document.createElement('div');
-  root.className = 'tb-chat';
+  root.className = `tb-chat${sample ? ' tb-chat--sample' : ''}`;
   root.innerHTML = `
     <div class="tb-chat__nudge" data-chat-nudge hidden>
-      <button class="tb-chat__nudge-text" type="button" data-chat-open>Questions about THINKBIG? <strong>Ask our AI assistant</strong></button>
+      <button class="tb-chat__nudge-text" type="button" data-chat-open>${TEXT.nudge}</button>
       <button class="tb-chat__nudge-close" type="button" aria-label="Dismiss" data-chat-dismiss>${icon('i-close')}</button>
     </div>
-    <button class="tb-chat__launcher" type="button" aria-label="Chat with THINKBIG AI" aria-expanded="false" aria-controls="tb-chat-panel" data-chat-launcher>
+    <button class="tb-chat__launcher" type="button" aria-label="${TEXT.launcher}" aria-expanded="false" aria-controls="tb-chat-panel" data-chat-launcher>
       <span class="tb-chat__launcher-icon tb-chat__launcher-icon--chat">${icon('i-chat')}<span class="tb-chat__spark">${icon('i-sparkle')}</span></span>
-      <span class="tb-chat__launcher-icon tb-chat__launcher-icon--close">${icon('i-close')}</span>
+      <span class="tb-chat__launcher-icon tb-chat__launcher-icon--close">${icon('i-chevron')}</span>
     </button>
     <section class="tb-chat__panel" id="tb-chat-panel" role="dialog" aria-labelledby="tb-chat-title" aria-describedby="tb-chat-note" hidden data-chat-panel>
       <header class="tb-chat__head">
         <span class="tb-chat__avatar" aria-hidden="true"><svg><use href="#logo-mark" /></svg></span>
         <div class="tb-chat__titles">
           <h2 class="tb-chat__title" id="tb-chat-title">THINKBIG AI</h2>
-          <p class="tb-chat__status"><span class="tb-chat__dot${configured ? '' : ' is-off'}"></span>${configured ? 'Answers from the THINKBIG website' : 'Not connected yet'}</p>
+          <p class="tb-chat__status"><span class="tb-chat__dot"></span>${TEXT.status}</p>
         </div>
         <button class="tb-chat__icon-btn" type="button" aria-label="Start a new chat" title="New chat" data-chat-new>${icon('i-plus')}</button>
         <button class="tb-chat__icon-btn" type="button" aria-label="Close chat" title="Close" data-chat-close>${icon('i-close')}</button>
       </header>
-      <p class="tb-chat__note" id="tb-chat-note">You're chatting with AI, which can make mistakes. Please don't share personal or children's details. Need a person? <a href="${BASE}index.html#demo">Talk to our team</a>.</p>
+      <p class="tb-chat__note" id="tb-chat-note">${TEXT.note}</p>
       <div class="tb-chat__log" role="log" aria-live="polite" aria-relevant="additions" tabindex="0" aria-label="Conversation" data-chat-log></div>
       <form class="tb-chat__composer" data-chat-form>
         <label class="visually-hidden" for="tb-chat-input">Message THINKBIG AI</label>
-        <textarea id="tb-chat-input" rows="1" maxlength="${MAX_INPUT}" placeholder="${configured ? 'Ask about THINKBIG…' : 'The assistant is not available yet'}" ${configured ? '' : 'disabled'} data-chat-input></textarea>
+        <textarea id="tb-chat-input" rows="1" maxlength="${MAX_INPUT}" placeholder="Ask about THINKBIG…" data-chat-input></textarea>
         <button class="tb-chat__send" type="submit" aria-label="Send message" disabled data-chat-send>${icon('i-arrow')}</button>
         <button class="tb-chat__stop" type="button" aria-label="Stop the answer" hidden data-chat-stop><span aria-hidden="true"></span></button>
       </form>
@@ -140,6 +121,8 @@ export function initChat() {
     return el;
   }
 
+  const tag = (isSample) => (isSample ? '<span class="tb-msg__tag">Sample response</span>' : '');
+
   function sourcesHtml(items) {
     if (!items?.length) return '';
     const links = items.map((s) => {
@@ -149,9 +132,11 @@ export function initChat() {
     return links ? `<div class="tb-msg__sources"><span>From our website</span>${links}</div>` : '';
   }
 
+  const answerHtml = (m) => tag(m.sample) + renderMarkdown(m.content) + sourcesHtml(m.sources);
+
   function renderSuggestions() {
     log.querySelector('.tb-chat__suggest')?.remove();
-    if (!configured || history.length) return;
+    if (history.length) return;
     const wrap = document.createElement('div');
     wrap.className = 'tb-chat__suggest';
     wrap.setAttribute('role', 'group');
@@ -164,18 +149,34 @@ export function initChat() {
     log.appendChild(wrap);
   }
 
+  // A fresh chat opens on a short home screen (greeting plus next-step cards),
+  // the pattern website messengers use; an ongoing chat opens on its messages.
+  function renderHome() {
+    const card = (tagName, attrs, title, text, iconId) =>
+      `<${tagName} class="tb-card" ${attrs}><span class="tb-card__text"><b>${title}</b><span>${text}</span></span>${icon(iconId)}</${tagName}>`;
+    const home = document.createElement('div');
+    home.className = 'tb-home';
+    home.innerHTML = `
+      <p class="tb-home__hello">Hi there 👋<br />How can we help?</p>
+      <div class="tb-home__intro">${renderMarkdown(GREETING.replace(/^Hi! 👋 /, ''))}</div>
+      <div class="tb-home__cards">
+        ${card('button', 'type="button" data-chat-focus', TEXT.askCard[0], TEXT.askCard[1], 'i-chat')}
+        ${card('a', `href="${BASE}pricing.html"`, 'Get pricing', 'A quote made for your program', 'i-wallet')}
+        ${card('a', `href="${BASE}index.html#demo"`, 'Book a demo', 'Talk to the THINKBIG team', 'i-users')}
+      </div>`;
+    home.querySelector('[data-chat-focus]').addEventListener('click', () => input.focus());
+    log.appendChild(home);
+  }
+
   function renderAll() {
     log.innerHTML = '';
-    bubble('assistant', renderMarkdown(GREETING));
-    if (!configured) {
-      bubble('assistant', `<p>The THINKBIG AI assistant isn't connected yet, so I can't answer questions here today. In the meantime:</p>
-        <ul><li><a href="${BASE}features.html">Explore every feature</a></li><li><a href="${BASE}pricing.html">Get pricing for your program</a></li><li><a href="${BASE}index.html#demo">Book a demo with our team</a></li></ul>`, 'tb-msg--notice');
-    }
-    history.forEach((m) => bubble(m.role, m.role === 'user' ? `<p>${escapeHtml(m.content)}</p>` : renderMarkdown(m.content) + sourcesHtml(m.sources)));
+    if (history.length) bubble('assistant', renderMarkdown(GREETING));
+    else renderHome();
+    history.forEach((m) => bubble(m.role, m.role === 'user' ? `<p>${escapeHtml(m.content)}</p>` : answerHtml(m)));
     renderSuggestions();
   }
 
-  const updateSend = () => { send.disabled = !configured || !input.value.trim() || Boolean(controller); };
+  const updateSend = () => { send.disabled = !input.value.trim() || Boolean(controller); };
 
   const autosize = () => {
     input.style.height = 'auto';
@@ -189,18 +190,23 @@ export function initChat() {
     updateSend();
   }
 
-  // Sends at most MAX_HISTORY earlier messages, starting with a visitor message
-  function payload(earlier, question) {
-    let past = earlier.map(({ role, content }) => ({ role, content: content.slice(0, 6000) })).slice(-MAX_HISTORY);
+  // At most MAX_HISTORY earlier messages, starting with a visitor message
+  function conversation(earlier, question) {
+    const past = earlier.map(({ role, content }) => ({ role, content: content.slice(0, 6000) })).slice(-MAX_HISTORY);
     while (past.length && past[0].role !== 'user') past.shift();
-    return { messages: [...past, { role: 'user', content: question }] };
+    return [...past, { role: 'user', content: question }];
   }
 
   async function ask(text, { retry = false } = {}) {
     const question = text.trim().slice(0, MAX_INPUT);
-    if (!question || controller || !configured) return;
+    if (!question || controller) return;
     log.querySelector('.tb-chat__suggest')?.remove();
     log.querySelectorAll('.tb-msg--error').forEach((el) => el.remove());
+    const home = log.querySelector('.tb-home');
+    if (home) {
+      home.remove();
+      log.prepend(bubble('assistant', renderMarkdown(GREETING)));
+    }
 
     if (!retry) {
       // A question left unanswered by an error is replaced by the new one
@@ -209,11 +215,11 @@ export function initChat() {
       save(history);
       bubble('user', `<p>${escapeHtml(question)}</p>`);
     }
-    const body = payload(history.slice(0, -1), question);
+    const messages = conversation(history.slice(0, -1), question);
     input.value = '';
     autosize();
 
-    const reply = bubble('assistant', '<span class="tb-typing" aria-label="THINKBIG AI is typing"><i></i><i></i><i></i></span>');
+    const reply = bubble('assistant', '<span class="tb-typing" role="img" aria-label="THINKBIG AI is typing"><i></i><i></i><i></i></span>', 'tb-msg--pending');
     const target = reply.querySelector('.tb-msg__bubble');
     controller = new AbortController();
     setBusy(true);
@@ -225,48 +231,28 @@ export function initChat() {
     let stopped = false;
 
     try {
-      const res = await fetch(CHAT_API_URL, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(body),
-        signal: controller.signal,
-      });
-      if (!res.ok || !res.body) {
-        const data = await res.json().catch(() => null);
-        throw Object.assign(new Error(data?.error?.message ?? 'The assistant could not be reached.'), { code: data?.error?.code });
-      }
-      const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
-      let buffer = '';
-      for (;;) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        buffer += value;
-        const parts = buffer.split('\n\n');
-        buffer = parts.pop();
-        for (const part of parts) {
-          if (!part.startsWith('data: ')) continue;
-          const event = JSON.parse(part.slice(6));
-          if (event.type === 'sources') sources = event.items;
-          else if (event.type === 'reset') answer = '';
-          else if (event.type === 'text') answer += event.text;
-          else if (event.type === 'error') failure = event;
-          if (event.type === 'text' || event.type === 'reset') {
-            target.innerHTML = answer ? renderMarkdown(answer) : target.innerHTML;
-            scrollDown();
-          }
+      for await (const event of chatProvider.ask({ messages, signal: controller.signal })) {
+        if (event.type === 'sources') sources = event.items;
+        else if (event.type === 'reset') answer = '';
+        else if (event.type === 'text') answer += event.text;
+        if (event.type === 'text' || event.type === 'reset') {
+          reply.classList.remove('tb-msg--pending');
+          target.innerHTML = tag(sample) + renderMarkdown(answer);
+          scrollDown();
         }
       }
     } catch (err) {
       if (err.name === 'AbortError') stopped = true;
-      else failure = { code: err.code ?? 'network', message: err.code ? err.message : 'The assistant could not be reached. Check your connection and try again.' };
+      else failure = err instanceof ChatError ? err : new ChatError('unavailable', 'Something went wrong. Please try again.');
     }
 
     if (stopped && answer) answer += '\n\n(Stopped)';
     if (answer && !failure) {
-      target.innerHTML = renderMarkdown(answer) + sourcesHtml(sources);
-      history.push({ role: 'assistant', content: answer, sources });
+      const entry = { role: 'assistant', content: answer, sources, sample };
+      target.innerHTML = answerHtml(entry);
+      history.push(entry);
       save(history);
-      announce.textContent = 'THINKBIG AI answered';
+      announce.textContent = sample ? 'Sample response shown' : 'THINKBIG AI answered';
     } else if (stopped) {
       reply.remove();
       history.pop();
@@ -277,8 +263,9 @@ export function initChat() {
     } else {
       reply.remove();
       // The question stays on screen; a retry resends it without adding it twice
-      const errorEl = bubble('assistant', `<p>${escapeHtml(failure?.message ?? 'Something went wrong. Please try again.')}</p>${failure?.code === 'refusal' ? '' : '<button type="button" class="tb-retry">Try again</button>'}`, 'tb-msg--error');
-      if (failure?.code === 'refusal') {
+      const canRetry = failure.code !== 'refusal';
+      const errorEl = bubble('assistant', `<p>${escapeHtml(failure.message)}</p>${canRetry ? '<button type="button" class="tb-retry">Try again</button>' : ''}`, 'tb-msg--error');
+      if (!canRetry) {
         history.pop();
         save(history);
       }
@@ -286,7 +273,7 @@ export function initChat() {
         errorEl.remove();
         ask(question, { retry: true });
       });
-      announce.textContent = failure?.message ?? 'Something went wrong';
+      announce.textContent = failure.message;
     }
     setBusy(false);
     scrollDown();
@@ -308,14 +295,14 @@ export function initChat() {
     panel.hidden = false;
     root.classList.add('is-open');
     launcher.setAttribute('aria-expanded', 'true');
-    launcher.setAttribute('aria-label', 'Close THINKBIG AI chat');
+    launcher.setAttribute('aria-label', 'Close the THINKBIG AI chat');
     document.documentElement.classList.toggle('tb-chat-locked', phone.matches);
     fitViewport();
     if (!log.childElementCount) renderAll();
     // A fresh chat starts at the greeting; an ongoing one at the latest message
     if (history.length) scrollDown();
     else log.scrollTop = 0;
-    (configured ? input : panel.querySelector('[data-chat-close]')).focus({ preventScroll: true });
+    input.focus({ preventScroll: true });
   }
 
   function close() {
@@ -324,7 +311,7 @@ export function initChat() {
     panel.hidden = true;
     root.classList.remove('is-open');
     launcher.setAttribute('aria-expanded', 'false');
-    launcher.setAttribute('aria-label', 'Chat with THINKBIG AI');
+    launcher.setAttribute('aria-label', TEXT.launcher);
     document.documentElement.classList.remove('tb-chat-locked');
     launcher.focus({ preventScroll: true });
   }
@@ -335,17 +322,17 @@ export function initChat() {
   }
 
   launcher.addEventListener('click', () => (panel.hidden ? open() : close()));
-  root.querySelector('[data-chat-close]').addEventListener('click', close);
-  root.querySelector('[data-chat-open]').addEventListener('click', open);
-  root.querySelector('[data-chat-dismiss]').addEventListener('click', () => hideNudge(true));
-  root.querySelector('[data-chat-new]').addEventListener('click', () => {
+  $('[data-chat-close]').addEventListener('click', close);
+  $('[data-chat-open]').addEventListener('click', open);
+  $('[data-chat-dismiss]').addEventListener('click', () => hideNudge(true));
+  $('[data-chat-new]').addEventListener('click', () => {
     controller?.abort();
     history = [];
-    save(history);
     try { sessionStorage.removeItem(STORE_KEY); } catch { /* storage unavailable */ }
     renderAll();
+    log.scrollTop = 0;
     announce.textContent = 'Started a new chat';
-    if (configured) input.focus();
+    input.focus();
   });
   stop.addEventListener('click', () => controller?.abort());
 

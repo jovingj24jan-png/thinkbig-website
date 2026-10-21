@@ -1,7 +1,13 @@
-/* THINKBIG AI chat assistant (src/js/chat.js) */
+/* THINKBIG AI chat (src/js/chat/) */
 
 .has-chat .to-top {
   bottom: 92px;
+}
+
+/* The page's last row (footer legal links) can't scroll out from under the launcher,
+   so the footer ends with enough room to clear it */
+.has-chat .site-footer {
+  padding-bottom: calc(var(--s-8) + 72px);
 }
 
 .tb-chat {
@@ -166,7 +172,7 @@
   display: flex;
   flex-direction: column;
   width: min(400px, calc(100vw - 2 * var(--tb-gap)));
-  height: min(640px, calc(100dvh - var(--header-h) - 120px));
+  height: min(704px, calc(100dvh - var(--header-h) - 120px));
   min-height: 360px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -243,8 +249,9 @@
   background: var(--ok);
 }
 
-.tb-chat__dot.is-off {
-  background: #b0b8c4;
+.tb-chat--sample .tb-chat__dot {
+  background: var(--yellow);
+  box-shadow: 0 0 0 1.5px var(--warn);
 }
 
 .tb-chat__icon-btn {
@@ -354,9 +361,17 @@
   color: var(--primary);
 }
 
-.tb-msg--notice .tb-msg__bubble {
-  border-color: var(--tint-pink-border);
-  background: var(--tint-pink);
+.tb-msg__tag {
+  display: inline-block;
+  margin-bottom: var(--s-2);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .tb-msg--error .tb-msg__bubble {
@@ -432,6 +447,80 @@
 @keyframes tb-dot {
   0%, 60%, 100% { opacity: 0.35; transform: translateY(0); }
   30% { opacity: 1; transform: translateY(-4px); }
+}
+
+/* ---------- Home screen (fresh chat) ---------- */
+.tb-home {
+  display: grid;
+  gap: var(--s-3);
+  margin: calc(-1 * var(--s-4)) calc(-1 * var(--s-4)) 0;
+  padding: var(--s-6) var(--s-4) var(--s-2);
+  background: linear-gradient(180deg, var(--tint-pink) 0%, var(--surface) 70%);
+}
+
+.tb-home__hello {
+  color: var(--heading-deep);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.tb-home__intro {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.tb-home__cards {
+  display: grid;
+  gap: var(--s-2);
+  margin-top: var(--s-1);
+}
+
+.tb-card {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  width: 100%;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--heading);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+
+.tb-card:hover {
+  border-color: var(--tint-pink-border);
+  transform: translateY(-1px);
+}
+
+.tb-card__text {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+}
+
+.tb-card__text b {
+  font-size: 0.95rem;
+}
+
+.tb-card__text span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.tb-card .icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--primary-text);
 }
 
 /* ---------- Suggestions ---------- */

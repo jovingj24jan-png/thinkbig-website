@@ -117,30 +117,37 @@
   background: var(--tint-pink);
 }
 
-/* Header */
+/* Header: transparent over the hero, then a soft frosted bar once the page scrolls.
+   Every property that changes is transitioned, and the height never changes. */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 253, 248, 0.92);
-  backdrop-filter: saturate(1.4) blur(12px);
-  -webkit-backdrop-filter: saturate(1.4) blur(12px);
   border-bottom: 1px solid transparent;
+  background-color: rgba(255, 253, 248, 0);
+  backdrop-filter: blur(0) saturate(1);
+  -webkit-backdrop-filter: blur(0) saturate(1);
   transition:
-    border-color var(--t-base) var(--ease),
-    box-shadow var(--t-base) var(--ease);
-}
-
-/* Transparent over the hero picture until the page scrolls */
-.site-header:not(.is-scrolled) {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+    background-color 360ms var(--ease),
+    backdrop-filter 360ms var(--ease),
+    -webkit-backdrop-filter 360ms var(--ease),
+    border-color 360ms var(--ease),
+    box-shadow 360ms var(--ease);
 }
 
 .site-header.is-scrolled {
-  border-color: var(--border);
-  box-shadow: 0 6px 24px -18px rgba(52, 69, 99, 0.4);
+  border-color: rgba(234, 231, 226, 0.7);
+  background-color: rgba(255, 253, 248, 0.74);
+  backdrop-filter: blur(14px) saturate(1.5);
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  box-shadow: 0 10px 30px -24px rgba(52, 69, 99, 0.35);
+}
+
+/* Where frosted glass isn't supported, the scrolled bar is simply a little more opaque */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header.is-scrolled {
+    background-color: rgba(255, 253, 248, 0.96);
+  }
 }
 
 .header__inner {
@@ -160,27 +167,23 @@
   text-decoration: none;
 }
 
-.brand__mark {
-  width: 42px;
-  height: 42px;
+/* THINKBIG logo: SVG symbols in partials/sprite.html. The wordmark is used in headers;
+   the compact TB mark replaces it only where the wordmark can't fit. */
+.brand__logo {
+  display: block;
   flex: none;
-  transition: transform 600ms var(--ease);
+  width: auto;
+  height: 38px;
+  aspect-ratio: 1117 / 262;
+  overflow: visible;
 }
 
-.brand:hover .brand__mark {
-  transform: rotate(45deg);
-}
-
-.brand__word {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--heading);
-}
-
-.brand__word span {
-  color: var(--primary);
+.brand__icon {
+  display: none;
+  flex: none;
+  width: auto;
+  height: 40px;
+  aspect-ratio: 368 / 280;
 }
 
 .main-nav__list {
@@ -194,29 +197,50 @@
 }
 
 .nav-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 4px;
   min-height: 44px;
   padding: 0 0.75rem;
   border: 0;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-sm);
   background: transparent;
   color: var(--heading);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0.005em;
   text-decoration: none;
   white-space: nowrap;
-  transition:
-    background-color var(--t-fast) var(--ease),
-    color var(--t-fast) var(--ease);
+  transition: color var(--t-base) var(--ease);
+}
+
+/* A short pink underline that grows from the centre */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform var(--t-base) var(--ease-out-expo);
 }
 
 .nav-link:hover,
+.nav-link:focus-visible,
 .nav-link[aria-current='page'],
 .nav-item.is-open > .nav-link {
-  background: var(--tint-pink);
   color: var(--primary-text);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link[aria-current='page']::after,
+.nav-item.is-open > .nav-link::after {
+  transform: scaleX(1);
 }
 
 .nav-link__chev {
@@ -234,17 +258,20 @@
   z-index: 10;
   width: 340px;
   padding: var(--s-3);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(234, 231, 226, 0.8);
   border-radius: var(--radius-lg);
   background: var(--surface);
-  box-shadow: var(--shadow-lg);
+  /* Opaque so menus stay readable over any hero; a soft, layered shadow instead of a heavy one */
+  box-shadow:
+    0 1px 2px rgba(52, 69, 99, 0.04),
+    0 18px 44px -20px rgba(52, 69, 99, 0.24);
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, 8px);
   transition:
-    opacity var(--t-base) var(--ease),
-    transform var(--t-base) var(--ease),
-    visibility 0s linear var(--t-base);
+    opacity 240ms var(--ease),
+    transform 320ms var(--ease-out-expo),
+    visibility 0s linear 240ms;
 }
 
 /* Invisible bridge so the menu stays open while the pointer travels to it */
@@ -442,29 +469,50 @@
   gap: var(--s-2);
 }
 
+/* Login: a light, translucent outline that sits quietly on the hero */
 .header__login {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 0.75rem;
+  padding: 0 1.3rem;
+  border: 1.5px solid rgba(52, 69, 99, 0.18);
   border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--heading);
   font-weight: 700;
   text-decoration: none;
-  transition: background-color var(--t-fast) var(--ease);
+  transition:
+    background-color var(--t-base) var(--ease),
+    border-color var(--t-base) var(--ease),
+    color var(--t-base) var(--ease);
 }
 
 .header__login:hover {
-  background: #eef7fd;
+  border-color: var(--tint-pink-border);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-text);
 }
 
-.header__login {
-  padding: 0 1.4rem;
-  border: 2px solid #a7d8f0;
-  color: #2f74c8;
-}
-
+/* Get a Demo: the pink pill CTA, lifting slightly on hover */
 .header__cta {
   background: linear-gradient(180deg, #ff86b1 0%, #f2558f 100%);
+  box-shadow: 0 10px 22px -12px rgba(244, 107, 155, 0.75);
+  transition:
+    transform var(--t-base) var(--ease),
+    box-shadow var(--t-base) var(--ease),
+    filter var(--t-base) var(--ease);
+}
+
+.header__cta:hover {
+  background: linear-gradient(180deg, #ff7aa9 0%, #e94a85 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px -12px rgba(244, 107, 155, 0.85);
+}
+
+.header__cta:active {
+  transform: translateY(0);
 }
 
 .header__cta .icon {
@@ -473,6 +521,27 @@
 
 .header__cta:hover .icon {
   transform: translateX(3px);
+}
+
+.site-header .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .nav-link,
+  .nav-link::after,
+  .nav-menu,
+  .header__login,
+  .header__cta,
+  .header__cta .icon {
+    transition: none;
+  }
+
+  .header__cta:hover,
+  .header__cta:hover .icon {
+    transform: none;
+  }
 }
 
 .menu-toggle {
@@ -493,8 +562,8 @@
   .header__actions {
     gap: 4px;
   }
-  .brand__word {
-    font-size: 1.45rem;
+  .brand__logo {
+    height: 34px;
   }
 }
 
@@ -509,9 +578,18 @@
   .menu-toggle {
     display: inline-grid;
   }
-  .brand__mark {
-    width: 36px;
-    height: 36px;
+  .brand__logo {
+    height: 32px;
+  }
+}
+
+/* Very narrow headers: the compact TB mark instead of the full wordmark */
+@media (max-width: 339px) {
+  .site-header .brand__logo {
+    display: none;
+  }
+  .site-header .brand__icon {
+    display: block;
   }
 }
 

@@ -223,6 +223,14 @@
 
   .js [data-reveal='left'] { transform: translateX(28px); }
   .js [data-reveal='right'] { transform: translateX(-28px); }
+
+  /* Side slides only make sense beside other content. In the stacked layouts these
+     elements fill the container, and the sideways offset pushed them past the
+     viewport edge before they were revealed (2px page overflow at 768px). */
+  @media (max-width: 959px) {
+    .js [data-reveal='left'],
+    .js [data-reveal='right'] { transform: translateY(24px); }
+  }
   .js [data-reveal='scale'] { transform: scale(0.96); }
 
   .js [data-reveal].is-visible {
