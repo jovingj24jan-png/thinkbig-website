@@ -15,6 +15,7 @@ import './styles/home.css';
 import './styles/whats-new.css';
 import './styles/audience.css';
 import './styles/multisite.css';
+import './styles/chat.css';
 
 import { initHeader } from './js/header.js';
 import { initSearch } from './js/search.js';
@@ -33,6 +34,7 @@ import { initHome } from './js/home.js';
 import { initWhatsNew } from './js/whats-new.js';
 import { initAudienceTabs } from './js/audience.js';
 import { initMultisite } from './js/multisite.js';
+import { initChat } from './js/chat.js';
 
 document.documentElement.classList.add('js');
 
@@ -53,3 +55,4 @@ initSiteLinks();
 initHeroScene();
 initMotion();
 initPageMotion();
+initChat();

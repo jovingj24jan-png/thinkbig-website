@@ -57,6 +57,7 @@ All settings live in `src/config.js`:
 | `LOGIN_URL` | Target of every **Login** link. While empty, clicking Login shows a "not available yet" message. |
 | `DEMO_FORM_ENDPOINT` | URL that receives demo requests and pricing requests (sent with `type: "pricing"`) as a JSON `POST`. While empty, the form runs in **preview mode**: it validates input and clearly tells the visitor the request was **not** sent. |
 | `APP_STORES` | App Store and Google Play listings. While a `url` is empty, the store badges (pricing page strip and every footer) and the store cards (pricing page) show **Coming soon**. Add the real store `url`, and the `rating` and `reviews` from that listing, to show download links, stars and review counts. Never enter ratings that aren't on the real listing. |
+| `CHAT_API_URL` | Address of the THINKBIG AI chat API (`…/chat`). Also settable with the `CHAT_API_URL` repository variable, which the deploy workflow passes as `VITE_CHAT_API_URL`. While empty, the chat panel says the assistant is not connected yet. See `chat-api/README.md`. |
 | `CONTACT.email` / `CONTACT.phone` | Public contact details shown under the address in the Contact section. Hidden while empty. |
 
 ### Connecting the demo form
@@ -153,3 +154,8 @@ thinkbig-website/
 - Dropdowns, drawer, search and FAQ all work with the keyboard (Arrow keys, Escape, Home/End).
 - The form has visible labels, inline error messages linked with `aria-describedby`, and a live status region.
 - `prefers-reduced-motion` turns off continuous animation, parallax and reveal effects. Continuous decoration also stops below 640px.
+
+## THINKBIG AI assistant
+
+Every page (except the legal pages) shows a chat launcher in the bottom-right corner. The panel (`src/js/chat.js`, `src/styles/chat.css`) streams answers from a small Cloudflare Worker in `chat-api/`, which keeps the Anthropic API key server-side and grounds Claude in the website's own content (`chat-api/src/knowledge.json`, rebuilt with `npm run knowledge`). Setup, environment variables and deployment steps are in [`chat-api/README.md`](chat-api/README.md).
+
